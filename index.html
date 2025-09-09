@@ -1,0 +1,2330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cashbill Portal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --white: #fff;
+  --accent: #0071e3;
+  --accent-hover: #0051d5;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-size: 15px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+}
+
+body.dark-mode {
+  --bg: #1d1d1f;
+  --white: #2d2d30;
+  --accent: #0a84ff;
+  --accent-hover: #409cff;
+  --text: #f5f5f7;
+  --muted: #a1a1a6;
+}
+
+button,input,select,textarea {
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Login */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #fff, #f5f5f7);
+  padding: 20px;
+}
+
+.login-box {
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 320px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.login-box:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 0.008em;
+}
+
+.login-box .logo {
+  margin-bottom: 20px;
+  font-size: 48px;
+  color: var(--accent);
+}
+
+.login-box input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: var(--radius);
+  border: 1px solid #d2d2d7;
+  font-size: 17px;
+  transition: var(--transition);
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--transition);
+}
+
+.login-box button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.login-box button:active {
+  transform: translateY(1px);
+}
+
+.error {
+  color: #ff3b30;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 8px;
+  background: rgba(255, 59, 48, 0.1);
+  border-radius: 6px;
+}
+
+/* Layout */
+.app {
+  display: none;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.topbar {
+  height: 60px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.hamburger {
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 20px;
+  background: none;
+  border: none;
+  color: var(--text);
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#welcomeText {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.logout-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.logout-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
+}
+
+.sidebar {
+  width: 260px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 60px;
+  z-index: 90;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.2s;
+  font-weight: 500;
+}
+
+.sidebar a i {
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.sidebar a:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.sidebar a.active {
+  background: rgba(0, 113, 227, 0.1);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sidebar a.active i {
+  color: var(--accent);
+}
+
+.main {
+  margin-left: 0;
+  padding: 80px 20px 20px;
+  transition: margin-left 0.3s ease;
+  overflow: auto;
+  height: 100vh;
+}
+
+.sidebar.open ~ .main {
+  margin-left: 260px;
+}
+
+h1 {
+  font-weight: 600;
+  margin: 0 0 20px;
+  font-size: 32px;
+  letter-spacing: 0.004em;
+}
+
+.card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-box {
+  position: relative;
+  width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border-radius: 20px;
+  border: 1px solid #d2d2d7;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+tr:hover {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.actions button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.actions button:active {
+  transform: translateY(1px);
+}
+
+.actions .edit {
+  background: var(--accent);
+  color: white;
+}
+
+.actions .delete {
+  background: #ff3b30;
+  color: white;
+}
+
+.actions .commit {
+  background: #34c759;
+  color: white;
+}
+
+.actions .uncommit {
+  background: #ff9500;
+  color: white;
+}
+
+.actions .adjust {
+  background: #af52de;
+  color: white;
+}
+
+.actions .export {
+  background: #5ac8fa;
+  color: white;
+}
+
+.actions .print {
+  background: #30d158;
+  color: white;
+}
+
+.add-form {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: var(--radius);
+}
+
+.add-form input, .add-form select {
+  padding: 10px;
+  margin: 6px 0;
+  width: 100%;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.add-form input:focus, .add-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.add-form button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.add-form button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.add-form button:active {
+  transform: translateY(1px);
+}
+
+/* Dashboard Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.stat-card .icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.stat-card .value {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.stat-card .label {
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--text);
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  max-width: 300px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background: #34c759;
+}
+
+.toast.error {
+  background: #ff3b30;
+}
+
+.toast.warning {
+  background: #ff9500;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  max-width: 500px;
+  width: 90%;
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--text);
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.modal-footer .btn-cancel {
+  background: #f5f5f7;
+  color: var(--text);
+}
+
+.modal-footer .btn-cancel:hover {
+  background: #e8e8ed;
+}
+
+.modal-footer .btn-confirm {
+  background: var(--accent);
+  color: white;
+}
+
+.modal-footer .btn-confirm:hover {
+  background: var(--accent-hover);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: 1px solid #d2d2d7;
+  background: var(--white);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pagination button:hover {
+  background: rgba(0, 113, 227, 0.1);
+}
+
+.pagination button.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Date Range Filter */
+.date-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.date-filter input {
+  padding: 8px;
+  border: 1px solid #d2d2d7;
+  border-radius: 6px;
+}
+
+.date-filter button {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.date-filter button:hover {
+  background: var(--accent-hover);
+}
+
+/* Bulk Actions */
+.bulk-actions {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bulk-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.bulk-actions .bulk-delete {
+  background: #ff3b30;
+  color: white;
+}
+
+.bulk-actions .bulk-delete:hover {
+  background: #d70015;
+}
+
+/* Activity Log */
+.activity-log {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-time {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+  
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .sidebar.open ~ .main {
+    margin-left: 0;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .search-box {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .actions button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .date-filter {
+    flex-direction: column;
+  }
+  
+  .bulk-actions {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Login -->
+<div class="login-container" id="loginScreen">
+  <div class="login-box">
+    <div class="logo"><i class="fas fa-receipt"></i></div>
+    <h2>Cashbill Portal</h2>
+    <input type="text" id="userId" placeholder="User ID" autocomplete="username">
+    <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+    <button onclick="login()">Login</button>
+    <div class="error hidden" id="loginError"></div>
+  </div>
+</div>
+
+<!-- App -->
+<div class="app" id="appScreen">
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div id="welcomeText">Welcome</div>
+    <button class="logout-btn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+  </div>
+  
+  <div class="sidebar" id="sidebar">
+    <a href="#" onclick="showPage('dashboard')" class="nav-link">
+      <i class="fas fa-chart-line"></i> Dashboard
+    </a>
+    <a href="#" onclick="showPage('cashbills')" class="nav-link">
+      <i class="fas fa-file-invoice-dollar"></i> Cashbills
+    </a>
+    <a href="#" onclick="showPage('profile')" class="nav-link">
+      <i class="fas fa-user"></i> Profile
+    </a>
+    <a href="#" onclick="showPage('inventory')" class="nav-link">
+      <i class="fas fa-boxes"></i> Inventory
+    </a>
+    <a href="#" onclick="showPage('logbook')" class="nav-link">
+      <i class="fas fa-book"></i> Logbook
+    </a>
+    <a href="#" onclick="showPage('courier')" class="nav-link">
+      <i class="fas fa-shipping-fast"></i> Courier Logbook
+    </a>
+    <a href="#" onclick="showPage('users')" class="nav-link">
+      <i class="fas fa-users-cog"></i> User Management
+    </a>
+    <a href="#" onclick="showPage('settings')" class="nav-link">
+      <i class="fas fa-cog"></i> Settings
+    </a>
+    <a href="#" onclick="showPage('activity')" class="nav-link">
+      <i class="fas fa-history"></i> Activity Log
+    </a>
+  </div>
+  
+  <div class="main" id="mainContent"></div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Confirmation Modal -->
+<div class="modal" id="confirmModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Confirm Action</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalMessage">
+      Are you sure you want to perform this action?
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-confirm" id="confirmBtn">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Initialize data from localStorage or use defaults
+let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+let cashbills = JSON.parse(localStorage.getItem('cashbills')) || [];
+let inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+let logbook = JSON.parse(localStorage.getItem('logbook')) || [];
+let courier = JSON.parse(localStorage.getItem('courier')) || [];
+let users = JSON.parse(localStorage.getItem('users')) || [
+  {id:"001",name:"Admin",role:"admin"},
+  {id:"002",name:"Demo",role:"user"}
+];
+let settings = JSON.parse(localStorage.getItem('settings')) || {
+  darkMode: false,
+  notifications: true
+};
+let activityLog = JSON.parse(localStorage.getItem('activityLog')) || [];
+
+// Pagination variables
+let currentPage = 1;
+const itemsPerPage = 10;
+let currentPageType = '';
+
+// Check if user is already logged in
+if (currentUser) {
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("appScreen").style.display = "block";
+  document.getElementById("welcomeText").textContent = "Welcome, " + currentUser.name + " (" + currentUser.role + ")";
+  
+  // Apply dark mode if enabled
+  if (settings.darkMode) {
+    document.body.classList.add('dark-mode');
+  }
+  
+  showPage("dashboard");
+}
+
+function login() {
+  const id = document.getElementById("userId").value.trim();
+  const pw = document.getElementById("password").value.trim();
+  const err = document.getElementById("loginError");
+  
+  if (!id || !pw) {
+    showToast("Please enter both User ID and Password", "error");
+    return;
+  }
+  
+  if (id === "001" && pw === "dd") {
+    currentUser = {id:"001",role:"admin",name:"Admin"};
+  } else if (id === "002" && pw === "test") {
+    currentUser = {id:"002",role:"user",name:"Demo"};
+  } else {
+    err.textContent = "Invalid credentials";
+    err.classList.remove("hidden");
+    return;
+  }
+  
+  // Save to localStorage
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  
+  // Log activity
+  logActivity(`User ${currentUser.name} logged in`);
+  
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("appScreen").style.display = "block";
+  document.getElementById("welcomeText").textContent = "Welcome, " + currentUser.name + " (" + currentUser.role + ")";
+  
+  // Apply dark mode if enabled
+  if (settings.darkMode) {
+    document.body.classList.add('dark-mode');
+  }
+  
+  showToast("Login successful!", "success");
+  showPage("dashboard");
+}
+
+function logout() {
+  if (currentUser) {
+    logActivity(`User ${currentUser.name} logged out`);
+  }
+  
+  currentUser = null;
+  localStorage.removeItem('currentUser');
+  document.getElementById("appScreen").style.display = "none";
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("userId").value = "";
+  document.getElementById("password").value = "";
+  showToast("You have been logged out", "success");
+}
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+}
+
+function showPage(page) {
+  // Update active nav link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+  });
+  
+  if (event && event.target.closest('.nav-link')) {
+    event.target.closest('.nav-link').classList.add('active');
+  }
+  
+  // Reset pagination if page type changed
+  if (page !== currentPageType) {
+    currentPage = 1;
+    currentPageType = page;
+  }
+  
+  let html = "";
+  
+  if (page === "dashboard") {
+    const totalCashbills = cashbills.length;
+    const committedCashbills = cashbills.filter(cb => cb.status === "Committed").length;
+    const inventoryCount = inventory.length;
+    const logbookCount = logbook.length;
+    const totalSales = cashbills.reduce((sum, cb) => sum + (cb.amount || 0), 0);
+    
+    html = `
+      <div class="card">
+        <h1>Dashboard</h1>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="value">${totalCashbills}</div>
+            <div class="label">Total Cashbills</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon"><i class="fas fa-check-circle"></i></div>
+            <div class="value">${committedCashbills}</div>
+            <div class="label">Committed</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="value">$${totalSales.toFixed(2)}</div>
+            <div class="label">Total Sales</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon"><i class="fas fa-boxes"></i></div>
+            <div class="value">${inventoryCount}</div>
+            <div class="label">Inventory Items</div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>Recent Activity</h2>
+          <div class="activity-log">
+            ${activityLog.slice(-5).reverse().map(activity => `
+            <div class="activity-item">
+              <div>${activity.action}</div>
+              <div class="activity-time">${formatDate(activity.timestamp)}</div>
+            </div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  
+  if (page === "cashbills") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedCashbills = cashbills.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Cashbills</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="cbSearch" placeholder="Search cashbills..." onkeyup="filterCashbills()">
+          </div>
+        </div>
+        
+        ${currentUser.role === "admin" ? `
+        <div class="date-filter">
+          <input type="date" id="cbStartDate" placeholder="Start Date">
+          <input type="date" id="cbEndDate" placeholder="End Date">
+          <button onclick="filterCashbillsByDate()">Filter</button>
+          <button onclick="clearDateFilter('cashbills')">Clear</button>
+        </div>
+        
+        <div class="bulk-actions">
+          <button class="bulk-delete" onclick="bulkDeleteCashbills()" disabled id="bulkDeleteCb">
+            <i class="fas fa-trash"></i> Delete Selected
+          </button>
+          <button class="export" onclick="exportCashbills()">
+            <i class="fas fa-download"></i> Export CSV
+          </button>
+          <button class="print" onclick="printCashbills()">
+            <i class="fas fa-print"></i> Print
+          </button>
+        </div>
+        
+        <div class="add-form">
+          <input type="text" id="cbName" placeholder="Cashbill Name">
+          <input type="number" id="cbAmount" placeholder="Amount" step="0.01">
+          <button onclick="addCashbill()"><i class="fas fa-plus"></i> Add Cashbill</button>
+        </div>
+        ` : ""}
+        
+        <table>
+          <thead>
+            <tr>
+              ${currentUser.role === "admin" ? `<th><input type="checkbox" id="selectAllCb" onchange="toggleSelectAll('cashbills')"></th>` : ""}
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="cashbillsTableBody">
+            ${paginatedCashbills.map((c, i) => {
+              const actualIndex = startIndex + i;
+              return `
+              <tr>
+                ${currentUser.role === "admin" ? `<td><input type="checkbox" class="cb-checkbox" data-index="${actualIndex}" onchange="updateBulkDeleteButton('cashbills')"></td>` : ""}
+                <td>${c.name}</td>
+                <td>$${c.amount ? c.amount.toFixed(2) : "0.00"}</td>
+                <td><span class="status ${c.status.toLowerCase()}">${c.status}</span></td>
+                <td>${formatDate(c.date)}</td>
+                <td class="actions">
+                  ${currentUser.role === "admin" ? `
+                  <button class="edit" onclick="editCashbill(${actualIndex})" title="Edit"><i class="fas fa-edit"></i></button>
+                  <button class="adjust" onclick="adjustCashbill(${actualIndex})" title="Adjust Price"><i class="fas fa-dollar-sign"></i></button>
+                  ` : ""}
+                  <button class="delete" onclick="confirmDeleteCashbill(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+                  ${currentUser.role === "admin" ? `
+                  <button class="commit" onclick="commitCashbill(${actualIndex})" title="Commit"><i class="fas fa-check"></i></button>
+                  <button class="uncommit" onclick="uncommitCashbill(${actualIndex})" title="Uncommit"><i class="fas fa-undo"></i></button>
+                  ` : ""}
+                </td>
+              </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+        
+        ${renderPagination(cashbills.length, 'cashbills')}
+      </div>
+    `;
+  }
+  
+  if (page === "profile") {
+    const userActivities = activityLog.filter(a => a.user === currentUser.name).slice(-5);
+    
+    html = `
+      <div class="card">
+        <h1>Profile</h1>
+        <div class="profile-info">
+          <p><strong>ID:</strong> ${currentUser.id}</p>
+          <p><strong>Name:</strong> ${currentUser.name}</p>
+          <p><strong>Role:</strong> ${currentUser.role}</p>
+          <p><strong>Last Login:</strong> ${currentUser.lastLogin ? formatDate(currentUser.lastLogin) : "First time"}</p>
+        </div>
+        
+        <h2>Recent Activity</h2>
+        <div class="activity-log">
+          ${userActivities.map(activity => `
+          <div class="activity-item">
+            <div>${activity.action}</div>
+            <div class="activity-time">${formatDate(activity.timestamp)}</div>
+          </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+  
+  if (page === "inventory") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedInventory = inventory.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Inventory</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="invSearch" placeholder="Search inventory..." onkeyup="filterInventory()">
+          </div>
+        </div>
+        
+        ${currentUser.role === "admin" ? `
+        <div class="bulk-actions">
+          <button class="bulk-delete" onclick="bulkDeleteInventory()" disabled id="bulkDeleteInv">
+            <i class="fas fa-trash"></i> Delete Selected
+          </button>
+          <button class="export" onclick="exportInventory()">
+            <i class="fas fa-download"></i> Export CSV
+          </button>
+          <button class="print" onclick="printInventory()">
+            <i class="fas fa-print"></i> Print
+          </button>
+        </div>
+        
+        <div class="add-form">
+          <input type="text" id="invName" placeholder="Item Name">
+          <input type="number" id="invQuantity" placeholder="Quantity" min="1">
+          <input type="number" id="invPrice" placeholder="Price" step="0.01">
+          <button onclick="addInventory()"><i class="fas fa-plus"></i> Add Item</button>
+        </div>
+        ` : ""}
+        
+        <table>
+          <thead>
+            <tr>
+              ${currentUser.role === "admin" ? `<th><input type="checkbox" id="selectAllInv" onchange="toggleSelectAll('inventory')"></th>` : ""}
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Date Added</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTableBody">
+            ${paginatedInventory.map((it, i) => {
+              const actualIndex = startIndex + i;
+              return `
+              <tr>
+                ${currentUser.role === "admin" ? `<td><input type="checkbox" class="inv-checkbox" data-index="${actualIndex}" onchange="updateBulkDeleteButton('inventory')"></td>` : ""}
+                <td>${it.name}</td>
+                <td>${it.quantity || 1}</td>
+                <td>$${it.price ? it.price.toFixed(2) : "0.00"}</td>
+                <td>${formatDate(it.date)}</td>
+                <td class="actions">
+                  ${currentUser.role === "admin" ? `
+                  <button class="edit" onclick="editInventory(${actualIndex})" title="Edit"><i class="fas fa-edit"></i></button>
+                  <button class="delete" onclick="confirmDeleteInventory(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+                  ` : "View only"}
+                </td>
+              </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+        
+        ${renderPagination(inventory.length, 'inventory')}
+      </div>
+    `;
+  }
+  
+  if (page === "logbook") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedLogbook = logbook.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Logbook</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="logSearch" placeholder="Search logbook..." onkeyup="filterLogbook()">
+          </div>
+        </div>
+        
+        <div class="date-filter">
+          <input type="date" id="logStartDate" placeholder="Start Date">
+          <input type="date" id="logEndDate" placeholder="End Date">
+          <button onclick="filterLogbookByDate()">Filter</button>
+          <button onclick="clearDateFilter('logbook')">Clear</button>
+        </div>
+        
+        <div class="add-form">
+          <input type="text" id="logNote" placeholder="Note">
+          <button onclick="addLog()"><i class="fas fa-plus"></i> Add Entry</button>
+        </div>
+        
+        <ul id="logbookList">
+          ${paginatedLogbook.map((l, i) => {
+            const actualIndex = startIndex + i;
+            return `
+            <li>
+              <div>${l.note}</div>
+              <div class="activity-time">${formatDate(l.date)}</div>
+              <button class="delete" onclick="confirmDeleteLog(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+            </li>
+            `;
+          }).join("")}
+        </ul>
+        
+        ${renderPagination(logbook.length, 'logbook')}
+      </div>
+    `;
+  }
+  
+  if (page === "courier") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedCourier = courier.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Courier Logbook</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="courierSearch" placeholder="Search courier log..." onkeyup="filterCourier()">
+          </div>
+        </div>
+        
+        <div class="date-filter">
+          <input type="date" id="courierStartDate" placeholder="Start Date">
+          <input type="date" id="courierEndDate" placeholder="End Date">
+          <button onclick="filterCourierByDate()">Filter</button>
+          <button onclick="clearDateFilter('courier')">Clear</button>
+        </div>
+        
+        <div class="add-form">
+          <input type="text" id="courierNote" placeholder="Courier Entry">
+          <button onclick="addCourier()"><i class="fas fa-plus"></i> Add Entry</button>
+        </div>
+        
+        <ul id="courierList">
+          ${paginatedCourier.map((l, i) => {
+            const actualIndex = startIndex + i;
+            return `
+            <li>
+              <div>${l.note}</div>
+              <div class="activity-time">${formatDate(l.date)}</div>
+              <button class="delete" onclick="confirmDeleteCourier(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+            </li>
+            `;
+          }).join("")}
+        </ul>
+        
+        ${renderPagination(courier.length, 'courier')}
+      </div>
+    `;
+  }
+  
+  if (page === "users") {
+    if (currentUser.role === "admin") {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const paginatedUsers = users.slice(startIndex, endIndex);
+      
+      html = `
+        <div class="card">
+          <div class="card-header">
+            <h1>User Management</h1>
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="userSearch" placeholder="Search users..." onkeyup="filterUsers()">
+            </div>
+          </div>
+          
+          <div class="add-form">
+            <input type="text" id="uName" placeholder="Name">
+            <select id="uRole">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+            <button onclick="addUser()"><i class="fas fa-plus"></i> Add User</button>
+          </div>
+          
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Last Login</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              ${paginatedUsers.map((u, i) => {
+                const actualIndex = startIndex + i;
+                return `
+                <tr>
+                  <td>${u.id}</td>
+                  <td>${u.name}</td>
+                  <td>${u.role}</td>
+                  <td>${u.lastLogin ? formatDate(u.lastLogin) : "Never"}</td>
+                  <td class="actions">
+                    <button class="delete" onclick="confirmDeleteUser(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                `;
+              }).join("")}
+            </tbody>
+          </table>
+          
+          ${renderPagination(users.length, 'users')}
+        </div>
+      `;
+    } else {
+      html = `
+        <div class="card">
+          <h1>User Management</h1>
+          <p>View only. Admin access required.</p>
+          <ul>
+            ${users.map(u => `<li>${u.name} (${u.role})</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    }
+  }
+  
+  if (page === "settings") {
+    html = `
+      <div class="card">
+        <h1>Settings</h1>
+        <div class="settings-form">
+          <div class="setting-item">
+            <label>
+              <input type="checkbox" id="darkMode" ${settings.darkMode ? 'checked' : ''} onchange="updateSetting('darkMode')">
+              Dark Mode
+            </label>
+          </div>
+          <div class="setting-item">
+            <label>
+              <input type="checkbox" id="notifications" ${settings.notifications ? 'checked' : ''} onchange="updateSetting('notifications')">
+              Enable Notifications
+            </label>
+          </div>
+          <div class="setting-item">
+            <label>
+              Items per page:
+              <select id="itemsPerPage" onchange="updateItemsPerPage()">
+                <option value="5" ${itemsPerPage === 5 ? 'selected' : ''}>5</option>
+                <option value="10" ${itemsPerPage === 10 ? 'selected' : ''}>10</option>
+                <option value="20" ${itemsPerPage === 20 ? 'selected' : ''}>20</option>
+                <option value="50" ${itemsPerPage === 50 ? 'selected' : ''}>50</option>
+              </select>
+            </label>
+          </div>
+          <button onclick="resetData()" class="btn-danger">Reset All Data</button>
+        </div>
+      </div>
+    `;
+  }
+  
+  if (page === "activity") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedActivity = activityLog.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Activity Log</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="activitySearch" placeholder="Search activities..." onkeyup="filterActivity()">
+          </div>
+        </div>
+        
+        <div class="date-filter">
+          <input type="date" id="activityStartDate" placeholder="Start Date">
+          <input type="date" id="activityEndDate" placeholder="End Date">
+          <button onclick="filterActivityByDate()">Filter</button>
+          <button onclick="clearDateFilter('activity')">Clear</button>
+        </div>
+        
+        <div class="activity-log">
+          ${paginatedActivity.map((activity, i) => {
+            const actualIndex = startIndex + i;
+            return `
+            <div class="activity-item">
+              <div>
+                <strong>${activity.user}</strong>: ${activity.action}
+              </div>
+              <div class="activity-time">${formatDate(activity.timestamp)}</div>
+            </div>
+            `;
+          }).join("")}
+        </div>
+        
+        ${renderPagination(activityLog.length, 'activity')}
+      </div>
+    `;
+  }
+  
+  document.getElementById("mainContent").innerHTML = html;
+}
+
+/* Cashbill functions */
+function addCashbill() {
+  const name = document.getElementById("cbName").value.trim();
+  const amount = parseFloat(document.getElementById("cbAmount").value) || 0;
+  
+  if (!name) {
+    showToast("Please enter a cashbill name", "error");
+    return;
+  }
+  
+  const newCashbill = {
+    name: name,
+    amount: amount,
+    status: "Draft",
+    date: new Date().toISOString()
+  };
+  
+  cashbills.push(newCashbill);
+  saveData();
+  logActivity(`Added cashbill: ${name}`);
+  showToast("Cashbill added successfully", "success");
+  showPage("cashbills");
+}
+
+function confirmDeleteCashbill(index) {
+  showConfirmModal(
+    "Delete Cashbill",
+    "Are you sure you want to delete this cashbill?",
+    () => deleteCashbill(index)
+  );
+}
+
+function deleteCashbill(index) {
+  const cashbill = cashbills[index];
+  cashbills.splice(index, 1);
+  saveData();
+  logActivity(`Deleted cashbill: ${cashbill.name}`);
+  showToast("Cashbill deleted", "success");
+  showPage("cashbills");
+}
+
+function editCashbill(index) {
+  const newName = prompt("Edit cashbill name", cashbills[index].name);
+  if (newName && newName.trim()) {
+    const oldName = cashbills[index].name;
+    cashbills[index].name = newName.trim();
+    saveData();
+    logActivity(`Edited cashbill from "${oldName}" to "${newName.trim()}"`);
+    showToast("Cashbill updated", "success");
+    showPage("cashbills");
+  }
+}
+
+function adjustCashbill(index) {
+  const newAmount = prompt("Adjust price (enter new amount)", cashbills[index].amount);
+  if (newAmount !== null && !isNaN(parseFloat(newAmount))) {
+    const oldAmount = cashbills[index].amount;
+    cashbills[index].amount = parseFloat(newAmount);
+    saveData();
+    logActivity(`Adjusted cashbill price from $${oldAmount.toFixed(2)} to $${parseFloat(newAmount).toFixed(2)}`);
+    showToast("Price adjusted successfully", "success");
+    showPage("cashbills");
+  }
+}
+
+function commitCashbill(index) {
+  cashbills[index].status = "Committed";
+  saveData();
+  logActivity(`Committed cashbill: ${cashbills[index].name}`);
+  showToast("Cashbill committed", "success");
+  showPage("cashbills");
+}
+
+function uncommitCashbill(index) {
+  cashbills[index].status = "Draft";
+  saveData();
+  logActivity(`Uncommitted cashbill: ${cashbills[index].name}`);
+  showToast("Cashbill uncommitted", "warning");
+  showPage("cashbills");
+}
+
+function filterCashbills() {
+  const searchTerm = document.getElementById("cbSearch").value.toLowerCase();
+  const rows = document.querySelectorAll("#cashbillsTableBody tr");
+  
+  rows.forEach(row => {
+    const name = row.cells[1].textContent.toLowerCase();
+    row.style.display = name.includes(searchTerm) ? "" : "none";
+  });
+}
+
+function filterCashbillsByDate() {
+  const startDate = document.getElementById("cbStartDate").value;
+  const endDate = document.getElementById("cbEndDate").value;
+  
+  if (!startDate || !endDate) {
+    showToast("Please select both start and end dates", "error");
+    return;
+  }
+  
+  const filteredCashbills = cashbills.filter(cb => {
+    const cbDate = new Date(cb.date).toISOString().split('T')[0];
+    return cbDate >= startDate && cbDate <= endDate;
+  });
+  
+  // Update the table with filtered results
+  const tbody = document.getElementById("cashbillsTableBody");
+  tbody.innerHTML = filteredCashbills.map((c, i) => `
+    <tr>
+      ${currentUser.role === "admin" ? `<td><input type="checkbox" class="cb-checkbox" data-index="${i}" onchange="updateBulkDeleteButton('cashbills')"></td>` : ""}
+      <td>${c.name}</td>
+      <td>$${c.amount ? c.amount.toFixed(2) : "0.00"}</td>
+      <td><span class="status ${c.status.toLowerCase()}">${c.status}</span></td>
+      <td>${formatDate(c.date)}</td>
+      <td class="actions">
+        ${currentUser.role === "admin" ? `
+        <button class="edit" onclick="editCashbill(${i})" title="Edit"><i class="fas fa-edit"></i></button>
+        <button class="adjust" onclick="adjustCashbill(${i})" title="Adjust Price"><i class="fas fa-dollar-sign"></i></button>
+        ` : ""}
+        <button class="delete" onclick="confirmDeleteCashbill(${i})" title="Delete"><i class="fas fa-trash"></i></button>
+        ${currentUser.role === "admin" ? `
+        <button class="commit" onclick="commitCashbill(${i})" title="Commit"><i class="fas fa-check"></i></button>
+        <button class="uncommit" onclick="uncommitCashbill(${i})" title="Uncommit"><i class="fas fa-undo"></i></button>
+        ` : ""}
+      </td>
+    </tr>
+  `).join("");
+  
+  // Hide pagination
+  const pagination = document.querySelector('.pagination');
+  if (pagination) {
+    pagination.style.display = 'none';
+  }
+  
+  showToast(`Found ${filteredCashbills.length} cashbills in the selected date range`, "success");
+}
+
+function exportCashbills() {
+  let csv = 'Name,Amount,Status,Date\n';
+  
+  cashbills.forEach(cb => {
+    csv += `"${cb.name}",${cb.amount || 0},"${cb.status}","${formatDate(cb.date)}"\n`;
+  });
+  
+  downloadCSV(csv, 'cashbills.csv');
+  showToast("Cashbills exported successfully", "success");
+}
+
+function printCashbills() {
+  const printContent = `
+    <div class="print-area">
+      <h1>Cashbills Report</h1>
+      <p>Generated on: ${new Date().toLocaleString()}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${cashbills.map(cb => `
+            <tr>
+              <td>${cb.name}</td>
+              <td>$${cb.amount ? cb.amount.toFixed(2) : "0.00"}</td>
+              <td>${cb.status}</td>
+              <td>${formatDate(cb.date)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+  
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Cashbills Report</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          th { background-color: #f2f2f2; }
+        </style>
+      </head>
+      <body>${printContent}</body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+  
+  showToast("Print dialog opened", "success");
+}
+
+function toggleSelectAll(type) {
+  const selectAll = document.getElementById(`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`);
+  const checkboxes = document.querySelectorAll(`.${type}-checkbox`);
+  
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = selectAll.checked;
+  });
+  
+  updateBulkDeleteButton(type);
+}
+
+function updateBulkDeleteButton(type) {
+  const checkboxes = document.querySelectorAll(`.${type}-checkbox`);
+  const deleteButton = document.getElementById(`bulkDelete${type.charAt(0).toUpperCase() + type.slice(1)}`);
+  
+  const checkedBoxes = Array.from(checkboxes).filter(cb => cb.checked);
+  deleteButton.disabled = checkedBoxes.length === 0;
+}
+
+function bulkDeleteCashbills() {
+  const checkboxes = document.querySelectorAll('.cb-checkbox:checked');
+  const indicesToDelete = Array.from(checkboxes).map(cb => parseInt(cb.dataset.index));
+  
+  if (indicesToDelete.length === 0) {
+    showToast("No cashbills selected", "error");
+    return;
+  }
+  
+  showConfirmModal(
+    "Delete Selected Cashbills",
+    `Are you sure you want to delete ${indicesToDelete.length} cashbills?`,
+    () => {
+      // Sort indices in descending order to avoid index shifting when deleting
+      indicesToDelete.sort((a, b) => b - a);
+      
+      indicesToDelete.forEach(index => {
+        const cashbill = cashbills[index];
+        cashbills.splice(index, 1);
+        logActivity(`Deleted cashbill: ${cashbill.name}`);
+      });
+      
+      saveData();
+      showToast(`${indicesToDelete.length} cashbills deleted`, "success");
+      showPage("cashbills");
+    }
+  );
+}
+
+/* Inventory */
+function addInventory() {
+  const name = document.getElementById("invName").value.trim();
+  const quantity = parseInt(document.getElementById("invQuantity").value) || 1;
+  const price = parseFloat(document.getElementById("invPrice").value) || 0;
+  
+  if (!name) {
+    showToast("Please enter an item name", "error");
+    return;
+  }
+  
+  const newItem = {
+    name: name,
+    quantity: quantity,
+    price: price,
+    date: new Date().toISOString()
+  };
+  
+  inventory.push(newItem);
+  saveData();
+  logActivity(`Added inventory item: ${name}`);
+  showToast("Item added to inventory", "success");
+  showPage("inventory");
+}
+
+function confirmDeleteInventory(index) {
+  showConfirmModal(
+    "Delete Inventory Item",
+    "Are you sure you want to delete this item?",
+    () => deleteInventory(index)
+  );
+}
+
+function deleteInventory(index) {
+  const item = inventory[index];
+  inventory.splice(index, 1);
+  saveData();
+  logActivity(`Deleted inventory item: ${item.name}`);
+  showToast("Item deleted from inventory", "success");
+  showPage("inventory");
+}
+
+function editInventory(index) {
+  const newName = prompt("Edit item name", inventory[index].name);
+  if (newName && newName.trim()) {
+    const oldName = inventory[index].name;
+    inventory[index].name = newName.trim();
+    saveData();
+    logActivity(`Edited inventory item from "${oldName}" to "${newName.trim()}"`);
+    showToast("Item updated", "success");
+    showPage("inventory");
+  }
+}
+
+function filterInventory() {
+  const searchTerm = document.getElementById("invSearch").value.toLowerCase();
+  const rows = document.querySelectorAll("#inventoryTableBody tr");
+  
+  rows.forEach(row => {
+    const name = row.cells[1].textContent.toLowerCase();
+    row.style.display = name.includes(searchTerm) ? "" : "none";
+  });
+}
+
+function exportInventory() {
+  let csv = 'Item,Quantity,Price,Date Added\n';
+  
+  inventory.forEach(item => {
+    csv += `"${item.name}",${item.quantity || 1},${item.price || 0},"${formatDate(item.date)}"\n`;
+  });
+  
+  downloadCSV(csv, 'inventory.csv');
+  showToast("Inventory exported successfully", "success");
+}
+
+function printInventory() {
+  const printContent = `
+    <div class="print-area">
+      <h1>Inventory Report</h1>
+      <p>Generated on: ${new Date().toLocaleString()}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date Added</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${inventory.map(item => `
+            <tr>
+              <td>${item.name}</td>
+              <td>${item.quantity || 1}</td>
+              <td>$${item.price ? item.price.toFixed(2) : "0.00"}</td>
+              <td>${formatDate(item.date)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+  
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Inventory Report</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          th { background-color: #f2f2f2; }
+        </style>
+      </head>
+      <body>${printContent}</body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+  
+  showToast("Print dialog opened", "success");
+}
+
+function bulkDeleteInventory() {
+  const checkboxes = document.querySelectorAll('.inv-checkbox:checked');
+  const indicesToDelete = Array.from(checkboxes).map(cb => parseInt(cb.dataset.index));
+  
+  if (indicesToDelete.length === 0) {
+    showToast("No items selected", "error");
+    return;
+  }
+  
+  showConfirmModal(
+    "Delete Selected Items",
+    `Are you sure you want to delete ${indicesToDelete.length} items?`,
+    () => {
+      // Sort indices in descending order to avoid index shifting when deleting
+      indicesToDelete.sort((a, b) => b - a);
+      
+      indicesToDelete.forEach(index => {
+        const item = inventory[index];
+        inventory.splice(index, 1);
+        logActivity(`Deleted inventory item: ${item.name}`);
+      });
+      
+      saveData();
+      showToast(`${indicesToDelete.length} items deleted`, "success");
+      showPage("inventory");
+    }
+  );
+}
+
+/* Logbook */
+function addLog() {
+  const note = document.getElementById("logNote").value.trim();
+  
+  if (!note) {
+    showToast("Please enter a log entry", "error");
+    return;
+  }
+  
+  const newEntry = {
+    note: note,
+    date: new Date().toISOString()
+  };
+  
+  logbook.push(newEntry);
+  saveData();
+  logActivity(`Added logbook entry: ${note}`);
+  showToast("Log entry added", "success");
+  showPage("logbook");
+}
+
+function confirmDeleteLog(index) {
+  showConfirmModal(
+    "Delete Log Entry",
+    "Are you sure you want to delete this log entry?",
+    () => deleteLog(index)
+  );
+}
+
+function deleteLog(index) {
+  const entry = logbook[index];
+  logbook.splice(index, 1);
+  saveData();
+  logActivity(`Deleted logbook entry: ${entry.note}`);
+  showToast("Log entry deleted", "success");
+  showPage("logbook");
+}
+
+function filterLogbook() {
+  const searchTerm = document.getElementById("logSearch").value.toLowerCase();
+  const items = document.querySelectorAll("#logbookList li");
+  
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(searchTerm) ? "" : "none";
+  });
+}
+
+function filterLogbookByDate() {
+  const startDate = document.getElementById("logStartDate").value;
+  const endDate = document.getElementById("logEndDate").value;
+  
+  if (!startDate || !endDate) {
+    showToast("Please select both start and end dates", "error");
+    return;
+  }
+  
+  const filteredLogbook = logbook.filter(entry => {
+    const entryDate = new Date(entry.date).toISOString().split('T')[0];
+    return entryDate >= startDate && entryDate <= endDate;
+  });
+  
+  // Update the list with filtered results
+  const list = document.getElementById("logbookList");
+  list.innerHTML = filteredLogbook.map((entry, i) => `
+    <li>
+      <div>${entry.note}</div>
+      <div class="activity-time">${formatDate(entry.date)}</div>
+      <button class="delete" onclick="confirmDeleteLog(${i})" title="Delete"><i class="fas fa-trash"></i></button>
+    </li>
+  `).join("");
+  
+  // Hide pagination
+  const pagination = document.querySelector('.pagination');
+  if (pagination) {
+    pagination.style.display = 'none';
+  }
+  
+  showToast(`Found ${filteredLogbook.length} log entries in the selected date range`, "success");
+}
+
+/* Courier */
+function addCourier() {
+  const note = document.getElementById("courierNote").value.trim();
+  
+  if (!note) {
+    showToast("Please enter a courier entry", "error");
+    return;
+  }
+  
+  const newEntry = {
+    note: note,
+    date: new Date().toISOString()
+  };
+  
+  courier.push(newEntry);
+  saveData();
+  logActivity(`Added courier entry: ${note}`);
+  showToast("Courier entry added", "success");
+  showPage("courier");
+}
+
+function confirmDeleteCourier(index) {
+  showConfirmModal(
+    "Delete Courier Entry",
+    "Are you sure you want to delete this courier entry?",
+    () => deleteCourier(index)
+  );
+}
+
+function deleteCourier(index) {
+  const entry = courier[index];
+  courier.splice(index, 1);
+  saveData();
+  logActivity(`Deleted courier entry: ${entry.note}`);
+  showToast("Courier entry deleted", "success");
+  showPage("courier");
+}
+
+function filterCourier() {
+  const searchTerm = document.getElementById("courierSearch").value.toLowerCase();
+  const items = document.querySelectorAll("#courierList li");
+  
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(searchTerm) ? "" : "none";
+  });
+}
+
+function filterCourierByDate() {
+  const startDate = document.getElementById("courierStartDate").value;
+  const endDate = document.getElementById("courierEndDate").value;
+  
+  if (!startDate || !endDate) {
+    showToast("Please select both start and end dates", "error");
+    return;
+  }
+  
+  const filteredCourier = courier.filter(entry => {
+    const entryDate = new Date(entry.date).toISOString().split('T')[0];
+    return entryDate >= startDate && entryDate <= endDate;
+  });
+  
+  // Update the list with filtered results
+  const list = document.getElementById("courierList");
+  list.innerHTML = filteredCourier.map((entry, i) => `
+    <li>
+      <div>${entry.note}</div>
+      <div class="activity-time">${formatDate(entry.date)}</div>
+      <button class="delete" onclick="confirmDeleteCourier(${i})" title="Delete"><i class="fas fa-trash"></i></button>
+    </li>
+  `).join("");
+  
+  // Hide pagination
+  const pagination = document.querySelector('.pagination');
+  if (pagination) {
+    pagination.style.display = 'none';
+  }
+  
+  showToast(`Found ${filteredCourier.length} courier entries in the selected date range`, "success");
+}
+
+/* Users */
+function addUser() {
+  const name = document.getElementById("uName").value.trim();
+  const role = document.getElementById("uRole").value;
+  
+  if (!name) {
+    showToast("Please enter a user name", "error");
+    return;
+  }
+  
+  const id = String(users.length + 1).padStart(3, "0");
+  users.push({
+    id: id,
+    name: name,
+    role: role,
+    lastLogin: null
+  });
+  
+  saveData();
+  logActivity(`Added user: ${name} (${role})`);
+  showToast("User added successfully", "success");
+  showPage("users");
+}
+
+function confirmDeleteUser(index) {
+  showConfirmModal(
+    "Delete User",
+    "Are you sure you want to delete this user?",
+    () => deleteUser(index)
+  );
+}
+
+function deleteUser(index) {
+  const user = users[index];
+  users.splice(index, 1);
+  saveData();
+  logActivity(`Deleted user: ${user.name}`);
+  showToast("User deleted", "success");
+  showPage("users");
+}
+
+function filterUsers() {
+  const searchTerm = document.getElementById("userSearch").value.toLowerCase();
+  const rows = document.querySelectorAll("#usersTableBody tr");
+  
+  rows.forEach(row => {
+    const name = row.cells[1].textContent.toLowerCase();
+    row.style.display = name.includes(searchTerm) ? "" : "none";
+  });
+}
+
+/* Activity Log */
+function filterActivity() {
+  const searchTerm = document.getElementById("activitySearch").value.toLowerCase();
+  const items = document.querySelectorAll(".activity-item");
+  
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(searchTerm) ? "" : "none";
+  });
+}
+
+function filterActivityByDate() {
+  const startDate = document.getElementById("activityStartDate").value;
+  const endDate = document.getElementById("activityEndDate").value;
+  
+  if (!startDate || !endDate) {
+    showToast("Please select both start and end dates", "error");
+    return;
+  }
+  
+  const filteredActivity = activityLog.filter(activity => {
+    const activityDate = new Date(activity.timestamp).toISOString().split('T')[0];
+    return activityDate >= startDate && activityDate <= endDate;
+  });
+  
+  // Update the list with filtered results
+  const container = document.querySelector(".activity-log");
+  container.innerHTML = filteredActivity.map((activity, i) => `
+    <div class="activity-item">
+      <div>
+        <strong>${activity.user}</strong>: ${activity.action}
+      </div>
+      <div class="activity-time">${formatDate(activity.timestamp)}</div>
+    </div>
+  `).join("");
+  
+  // Hide pagination
+  const pagination = document.querySelector('.pagination');
+  if (pagination) {
+    pagination.style.display = 'none';
+  }
+  
+  showToast(`Found ${filteredActivity.length} activities in the selected date range`, "success");
+}
+
+/* Settings */
+function updateSetting(setting) {
+  settings[setting] = document.getElementById(setting).checked;
+  localStorage.setItem('settings', JSON.stringify(settings));
+  
+  if (setting === 'darkMode') {
+    if (settings.darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
+  
+  showToast(`Setting updated`, "success");
+}
+
+function updateItemsPerPage() {
+  const newItemsPerPage = parseInt(document.getElementById("itemsPerPage").value);
+  itemsPerPage = newItemsPerPage;
+  localStorage.setItem('itemsPerPage', itemsPerPage);
+  showToast("Items per page updated", "success");
+  
+  // Refresh current page
+  const activePage = document.querySelector('.nav-link.active').textContent.trim();
+  const pageMap = {
+    'Dashboard': 'dashboard',
+    'Cashbills': 'cashbills',
+    'Profile': 'profile',
+    'Inventory': 'inventory',
+    'Logbook': 'logbook',
+    'Courier Logbook': 'courier',
+    'User Management': 'users',
+    'Settings': 'settings',
+    'Activity Log': 'activity'
+  };
+  
+  showPage(pageMap[activePage]);
+}
+
+function resetData() {
+  showConfirmModal(
+    "Reset All Data",
+    "Are you sure you want to reset all data? This action cannot be undone.",
+    () => {
+      localStorage.clear();
+      location.reload();
+    }
+  );
+}
+
+/* Utility Functions */
+function saveData() {
+  localStorage.setItem('cashbills', JSON.stringify(cashbills));
+  localStorage.setItem('inventory', JSON.stringify(inventory));
+  localStorage.setItem('logbook', JSON.stringify(logbook));
+  localStorage.setItem('courier', JSON.stringify(courier));
+  localStorage.setItem('users', JSON.stringify(users));
+  localStorage.setItem('activityLog', JSON.stringify(activityLog));
+  localStorage.setItem('settings', JSON.stringify(settings));
+}
+
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.className = "toast show " + type;
+  
+  setTimeout(() => {
+    toast.className = "toast";
+  }, 3000);
+}
+
+function showConfirmModal(title, message, onConfirm) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalMessage").textContent = message;
+  document.getElementById("confirmBtn").onclick = () => {
+    onConfirm();
+    closeModal();
+  };
+  document.getElementById("confirmModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("confirmModal").classList.remove("show");
+}
+
+function formatDate(dateString) {
+  if (!dateString) return "N/A";
+  
+  const date = new Date(dateString);
+  return date.toLocaleString();
+}
+
+function downloadCSV(csv, filename) {
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.setAttribute('hidden', '');
+  a.setAttribute('href', url);
+  a.setAttribute('download', filename);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function logActivity(action) {
+  if (!currentUser) return;
+  
+  activityLog.push({
+    user: currentUser.name,
+    action: action,
+    timestamp: new Date().toISOString()
+  });
+  
+  // Keep only the last 1000 activities
+  if (activityLog.length > 1000) {
+    activityLog = activityLog.slice(-1000);
+  }
+  
+  localStorage.setItem('activityLog', JSON.stringify(activityLog));
+}
+
+function renderPagination(totalItems, type) {
+  if (totalItems <= itemsPerPage) return "";
+  
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  let pagination = '<div class="pagination">';
+  
+  // Previous button
+  pagination += `<button onclick="changePage(${currentPage - 1}, '${type}')" ${currentPage === 1 ? 'disabled' : ''}><i class="fas fa-chevron-left"></i></button>`;
+  
+  // Page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+      pagination += `<button onclick="changePage(${i}, '${type}')" class="${i === currentPage ? 'active' : ''}">${i}</button>`;
+    } else if (i === currentPage - 3 || i === currentPage + 3) {
+      pagination += '<span>...</span>';
+    }
+  }
+  
+  // Next button
+  pagination += `<button onclick="changePage(${currentPage + 1}, '${type}')" ${currentPage === totalPages ? 'disabled' : ''}><i class="fas fa-chevron-right"></i></button>`;
+  
+  pagination += '</div>';
+  
+  return pagination;
+}
+
+function changePage(page, type) {
+  currentPage = page;
+  showPage(type);
+}
+
+function clearDateFilter(type) {
+  if (type === 'cashbills') {
+    document.getElementById('cbStartDate').value = '';
+    document.getElementById('cbEndDate').value = '';
+    // Show the pagination again
+    const pagination = document.querySelector('.pagination');
+    if (pagination) {
+      pagination.style.display = 'flex';
+    }
+    showPage('cashbills');
+  } else if (type === 'logbook') {
+    document.getElementById('logStartDate').value = '';
+    document.getElementById('logEndDate').value = '';
+    const pagination = document.querySelector('.pagination');
+    if (pagination) {
+      pagination.style.display = 'flex';
+    }
+    showPage('logbook');
+  } else if (type === 'courier') {
+    document.getElementById('courierStartDate').value = '';
+    document.getElementById('courierEndDate').value = '';
+    const pagination = document.querySelector('.pagination');
+    if (pagination) {
+      pagination.style.display = 'flex';
+    }
+    showPage('courier');
+  } else if (type === 'activity') {
+    document.getElementById('activityStartDate').value = '';
+    document.getElementById('activityEndDate').value = '';
+    const pagination = document.querySelector('.pagination');
+    if (pagination) {
+      pagination.style.display = 'flex';
+    }
+    showPage('activity');
+  }
+  
+  showToast("Date filter cleared", "success");
+}
+
+// Auto logout after 30 minutes of inactivity
+let inactivityTimer;
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(() => {
+    if (currentUser) {
+      showToast("Session expired due to inactivity", "warning");
+      logout();
+    }
+  }, 30 * 60 * 1000); // 30 minutes
+}
+
+// Reset timer on user activity
+document.addEventListener("mousemove", resetInactivityTimer);
+document.addEventListener("keypress", resetInactivityTimer);
+document.addEventListener("click", resetInactivityTimer);
+document.addEventListener("scroll", resetInactivityTimer);
+
+// Initialize inactivity timer
+resetInactivityTimer();
+
+// Load items per page from localStorage if available
+const savedItemsPerPage = localStorage.getItem('itemsPerPage');
+if (savedItemsPerPage) {
+  itemsPerPage = parseInt(savedItemsPerPage);
+}
+</script>
+</body>
+</html>
