@@ -385,14 +385,6 @@ tr:hover {
   background: #30d158;
   color: white;
 }
-.actions .close-day {
-  background: #ff3b30;
-  color: white;
-}
-.actions .reopen-day {
-  background: #34c759;
-  color: white;
-}
 .add-form {
   margin-top: 20px;
   padding: 16px;
@@ -798,176 +790,8 @@ tr:hover {
   color: var(--accent);
 }
 .status.closed {
-  background: rgba(255, 59, 48, 0.1);
-  color: #ff3b30;
-}
-/* Daily Sales */
-.daily-sales-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 20px;
-}
-.daily-summary-card {
-  background: var(--white);
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-.daily-summary-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-.daily-summary-card h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: var(--accent);
-  font-size: 18px;
-}
-.daily-summary-card .value {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 10px 0;
-}
-.daily-summary-card .label {
-  color: var(--muted);
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-}
-.bank-records {
-  margin-top: 20px;
-}
-.bank-records h3 {
-  margin-bottom: 15px;
-}
-.bank-record-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-}
-.bank-record-item:last-child {
-  border-bottom: none;
-}
-.bank-record-item .amount {
-  font-weight: 600;
-}
-.bank-record-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 15px;
-}
-.bank-record-actions button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition);
-}
-.bank-record-actions .add-bank {
-  background: var(--accent);
-  color: white;
-}
-.bank-record-actions .add-bank:hover {
-  background: var(--accent-hover);
-}
-.bank-record-actions .close-day {
-  background: #ff3b30;
-  color: white;
-}
-.bank-record-actions .close-day:hover {
-  background: #d70015;
-}
-.daily-sales-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 20px;
-}
-.daily-sales-actions button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: var(--transition);
-}
-.daily-sales-actions .btn-cancel {
-  background: #f5f5f7;
-  color: var(--text);
-}
-.daily-sales-actions .btn-cancel:hover {
-  background: #e8e8ed;
-}
-.daily-sales-actions .btn-save {
-  background: var(--accent);
-  color: white;
-}
-.daily-sales-actions .btn-save:hover {
-  background: var(--accent-hover);
-}
-.daily-sales-actions .btn-close {
-  background: #ff3b30;
-  color: white;
-}
-.daily-sales-actions .btn-close:hover {
-  background: #d70015;
-}
-/* Create Daily Sales Form */
-.daily-sales-form {
-  display: grid;
-  gap: 20px;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-.form-section {
-  margin-bottom: 20px;
-}
-.form-section h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  color: var(--accent);
-}
-.bank-entry {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.bank-entry input {
-  flex: 1;
-}
-.bank-entry button {
-  padding: 8px 12px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: var(--transition);
-}
-.bank-entry button:hover {
-  background: var(--accent-hover);
-}
-.cashbill-list {
-  margin-top: 15px;
-  max-height: 200px;
-  overflow-y: auto;
-}
-.cashbill-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-.cashbill-item:last-child {
-  border-bottom: none;
+  background: rgba(52, 199, 89, 0.1);
+  color: #34c759;
 }
 /* Create Cashbill Form */
 .cashbill-form {
@@ -1238,6 +1062,93 @@ tr:hover {
 .settings-actions .btn-danger:hover {
   background: #d70015;
 }
+/* Daily Sales Form */
+.daily-sales-form {
+  display: grid;
+  gap: 20px;
+}
+.payment-methods {
+  margin-top: 15px;
+}
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+.payment-method input {
+  flex: 1;
+}
+.payment-proof {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.payment-proof img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 6px;
+  border: 1px solid #d2d2d7;
+}
+.create-daily-sales-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.create-daily-sales-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.create-daily-sales-actions .btn-cancel {
+  background: #f5f5f7;
+  color: var(--text);
+}
+.create-daily-sales-actions .btn-cancel:hover {
+  background: #e8e8ed;
+}
+.create-daily-sales-actions .btn-submit {
+  background: var(--accent);
+  color: white;
+}
+.create-daily-sales-actions .btn-submit:hover {
+  background: var(--accent-hover);
+}
+/* Bank Records Table */
+.bank-records-table {
+  margin-top: 15px;
+}
+.bank-records-table th, .bank-records-table td {
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  text-align: left;
+}
+.bank-records-table th {
+  background: rgba(0, 0, 0, 0.02);
+  font-weight: 600;
+}
+/* Lazy Loading */
+.lazy-loading {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+}
+.lazy-loading i {
+  font-size: 24px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
 </head>
 <body>
@@ -1275,12 +1186,6 @@ tr:hover {
       <a href="#" onclick="showPage('dashboard')" class="nav-link">
         <i class="fas fa-chart-line"></i> Dashboard
       </a>
-      <a href="#" onclick="showPage('createDailySales')" class="nav-link">
-        <i class="fas fa-calendar-day"></i> Daily Sales
-      </a>
-      <a href="#" onclick="showPage('dailySalesList')" class="nav-link">
-        <i class="fas fa-list-alt"></i> Daily Sales Records
-      </a>
       <a href="#" onclick="showPage('createCashbill')" class="nav-link">
         <i class="fas fa-plus-circle"></i> Create Cashbill
       </a>
@@ -1289,6 +1194,19 @@ tr:hover {
       </a>
       <a href="#" onclick="showPage('salesReports')" class="nav-link">
         <i class="fas fa-chart-bar"></i> Sales Reports
+      </a>
+    </div>
+    
+    <div class="sidebar-category">
+      <div class="sidebar-category-title">DAILY SALES</div>
+      <a href="#" onclick="showPage('createDailySales')" class="nav-link">
+        <i class="fas fa-plus-circle"></i> Create Daily Sales
+      </a>
+      <a href="#" onclick="showPage('dailySales')" class="nav-link">
+        <i class="fas fa-calendar-day"></i> Daily Sales Records
+      </a>
+      <a href="#" onclick="showPage('bankRecords')" class="nav-link">
+        <i class="fas fa-university"></i> Bank Records
       </a>
     </div>
     
@@ -1380,6 +1298,7 @@ let settings = JSON.parse(localStorage.getItem('settings')) || {
 };
 let activityLog = JSON.parse(localStorage.getItem('activityLog')) || [];
 let dailySales = JSON.parse(localStorage.getItem('dailySales')) || [];
+let bankRecords = JSON.parse(localStorage.getItem('bankRecords')) || [];
 // Pagination variables
 let currentPage = 1;
 let itemsPerPage = settings.itemsPerPage || 10;
@@ -1430,6 +1349,8 @@ function initializeSampleData() {
       totalAmount: 3580.00,
       notes: "Urgent delivery",
       status: "Committed",
+      paymentMethod: "Bank Transfer",
+      paymentProof: "",
       createdBy: "Admin",
       createdAt: new Date(Date.now() - 86400000).toISOString(),
       committedBy: "Admin",
@@ -1446,6 +1367,8 @@ function initializeSampleData() {
       totalAmount: 2650.00,
       notes: "Corporate order",
       status: "Committed",
+      paymentMethod: "Cash",
+      paymentProof: "",
       createdBy: "Demo",
       createdAt: new Date(Date.now() - 172800000).toISOString(),
       committedBy: "Admin",
@@ -1462,6 +1385,8 @@ function initializeSampleData() {
       totalAmount: 3400.00,
       notes: "New office setup",
       status: "Draft",
+      paymentMethod: "Bank Transfer",
+      paymentProof: "",
       createdBy: "Demo",
       createdAt: new Date().toISOString()
     }
@@ -1544,38 +1469,61 @@ function initializeSampleData() {
   ];
   
   // Sample daily sales
-  const today = new Date().toISOString().split('T')[0];
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-  
   dailySales = [
     {
       id: "DS001",
-      date: yesterday,
-      totalSales: 6230.00,
-      bankRecords: [
-        { amount: 5000.00, note: "Cash deposit" },
-        { amount: 1230.00, note: "Online transfer" }
+      date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
+      totalSales: 3580.00,
+      paymentMethods: [
+        {method: "Cash", amount: 1000.00},
+        {method: "Bank Transfer", amount: 2580.00, proof: ""}
       ],
-      totalBankDeposits: 6230.00,
-      notes: "Regular day sales",
       status: "Closed",
       createdBy: "Admin",
       createdAt: new Date(Date.now() - 86400000).toISOString(),
       closedBy: "Admin",
-      closedAt: new Date(Date.now() - 43200000).toISOString()
+      closedAt: new Date(Date.now() - 86400000).toISOString()
     },
     {
       id: "DS002",
-      date: today,
-      totalSales: 3400.00,
-      bankRecords: [
-        { amount: 2000.00, note: "Morning deposit" }
+      date: new Date(Date.now() - 172800000).toISOString().split('T')[0],
+      totalSales: 2650.00,
+      paymentMethods: [
+        {method: "Cash", amount: 2650.00}
       ],
-      totalBankDeposits: 2000.00,
-      notes: "Sales in progress",
-      status: "Open",
+      status: "Closed",
       createdBy: "Demo",
-      createdAt: new Date().toISOString()
+      createdAt: new Date(Date.now() - 172800000).toISOString(),
+      closedBy: "Admin",
+      closedAt: new Date(Date.now() - 172800000).toISOString()
+    }
+  ];
+  
+  // Sample bank records
+  bankRecords = [
+    {
+      id: "BR001",
+      date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
+      transactionId: "TXN001",
+      amount: 2580.00,
+      paymentMethod: "Bank Transfer",
+      cashbillId: "CB001",
+      proof: "",
+      status: "Confirmed",
+      createdBy: "Admin",
+      createdAt: new Date(Date.now() - 86400000).toISOString()
+    },
+    {
+      id: "BR002",
+      date: new Date(Date.now() - 172800000).toISOString().split('T')[0],
+      transactionId: "TXN002",
+      amount: 1500.00,
+      paymentMethod: "Bank Transfer",
+      cashbillId: "CB002",
+      proof: "",
+      status: "Confirmed",
+      createdBy: "Demo",
+      createdAt: new Date(Date.now() - 172800000).toISOString()
     }
   ];
   
@@ -1660,13 +1608,10 @@ function showPage(page) {
     const inventoryCount = inventory.length;
     const logbookCount = logbook.length;
     const totalSales = cashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
+    const todaySales = getTodaySales();
     
     // Calculate monthly sales for chart
     const monthlySales = calculateMonthlySales();
-    
-    // Check if today's daily sales record exists
-    const today = new Date().toISOString().split('T')[0];
-    const todayDailySales = dailySales.find(ds => ds.date === today);
     
     html = `
       <div class="card">
@@ -1688,59 +1633,32 @@ function showPage(page) {
             <div class="label">Total Sales</div>
           </div>
           <div class="stat-card">
+            <div class="icon"><i class="fas fa-calendar-day"></i></div>
+            <div class="value">RM${todaySales.toFixed(2)}</div>
+            <div class="label">Today's Sales</div>
+          </div>
+          <div class="stat-card">
             <div class="icon"><i class="fas fa-boxes"></i></div>
             <div class="value">${inventoryCount}</div>
             <div class="label">Inventory Items</div>
           </div>
         </div>
         
-        ${!todayDailySales ? `
-        <div class="card">
-          <h2>Today's Daily Sales</h2>
-          <p>No daily sales record created for today.</p>
-          <button class="btn-submit" onclick="showPage('createDailySales')">Create Daily Sales Record</button>
-        </div>
-        ` : `
-        <div class="card">
-          <h2>Today's Daily Sales</h2>
-          <div class="daily-sales-summary">
-            <div class="daily-summary-card">
-              <h3>Total Sales</h3>
-              <div class="value">RM${todayDailySales.totalSales.toFixed(2)}</div>
-              <div class="label">From ${cashbills.filter(cb => cb.date === today && cb.status === "Committed").length} transactions</div>
-            </div>
-            <div class="daily-summary-card">
-              <h3>Bank Deposits</h3>
-              <div class="value">RM${todayDailySales.totalBankDeposits.toFixed(2)}</div>
-              <div class="label">${todayDailySales.bankRecords.length} records</div>
-            </div>
-            <div class="daily-summary-card">
-              <h3>Status</h3>
-              <div class="value">
-                <span class="status ${todayDailySales.status.toLowerCase()}">${todayDailySales.status}</span>
-              </div>
-              <div class="label">
-                ${todayDailySales.status === "Open" ? 
-                  `<button class="btn-submit" onclick="showPage('createDailySales')">Manage Record</button>` : 
-                  `<button class="btn-cancel" onclick="showPage('dailySalesList')">View Records</button>`}
-              </div>
-            </div>
-          </div>
-        </div>
-        `}
-        
         <div class="quick-actions">
-          <button onclick="showPage('createDailySales')">
-            <i class="fas fa-calendar-day"></i> Daily Sales
-          </button>
           <button onclick="showPage('createCashbill')">
             <i class="fas fa-plus"></i> New Cashbill
+          </button>
+          <button onclick="showPage('createDailySales')">
+            <i class="fas fa-plus"></i> Daily Sales Record
           </button>
           <button onclick="showPage('createInventory')">
             <i class="fas fa-plus"></i> Add Inventory
           </button>
           <button onclick="showPage('createLogbook')">
             <i class="fas fa-plus"></i> Log Entry
+          </button>
+          <button onclick="showPage('createCourier')">
+            <i class="fas fa-plus"></i> Courier Entry
           </button>
         </div>
         
@@ -1769,358 +1687,6 @@ function showPage(page) {
     setTimeout(() => {
       initializeSalesChart(monthlySales);
     }, 100);
-  }
-  
-  if (page === "createDailySales") {
-    const today = new Date().toISOString().split('T')[0];
-    const existingRecord = dailySales.find(ds => ds.date === today);
-    
-    if (existingRecord) {
-      // Edit existing record
-      const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
-      const totalSales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
-      
-      html = `
-        <div class="card">
-          <h1>Daily Sales - ${formatDate(today)}</h1>
-          <div class="daily-sales-form">
-            <div class="form-section">
-              <h3>Sales Summary</h3>
-              <div class="daily-sales-summary">
-                <div class="daily-summary-card">
-                  <h3>Total Sales</h3>
-                  <div class="value">RM${totalSales.toFixed(2)}</div>
-                  <div class="label">From ${todayCashbills.length} transactions</div>
-                </div>
-                <div class="daily-summary-card">
-                  <h3>Bank Deposits</h3>
-                  <div class="value">RM${existingRecord.totalBankDeposits.toFixed(2)}</div>
-                  <div class="label">${existingRecord.bankRecords.length} records</div>
-                </div>
-                <div class="daily-summary-card">
-                  <h3>Status</h3>
-                  <div class="value">
-                    <span class="status ${existingRecord.status.toLowerCase()}">${existingRecord.status}</span>
-                  </div>
-                  <div class="label">
-                    ${existingRecord.status === "Open" ? 
-                      `<button class="btn-close" onclick="closeDailySales('${existingRecord.id}')">Close Day</button>` : 
-                      (currentUser.role === "admin" ? 
-                        `<button class="reopen-day" onclick="reopenDailySales('${existingRecord.id}')">Reopen Day</button>` : 
-                        `<span>Closed - Contact admin to reopen</span>`)}
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h3>Today's Cashbills</h3>
-              <div class="cashbill-list">
-                ${todayCashbills.length > 0 ? todayCashbills.map(cb => `
-                <div class="cashbill-item">
-                  <div>${cb.id} - ${cb.customerName}</div>
-                  <div>RM${(cb.totalAmount || 0).toFixed(2)}</div>
-                </div>
-                `).join("") : "<p>No committed cashbills for today</p>"}
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h3>Bank Records</h3>
-              <div class="bank-records">
-                ${existingRecord.bankRecords.map((record, index) => `
-                <div class="bank-record-item">
-                  <div>${record.note || "Bank deposit"}</div>
-                  <div class="amount">RM${record.amount.toFixed(2)}</div>
-                  ${existingRecord.status === "Open" ? `
-                  <button class="delete" onclick="removeBankRecord('${existingRecord.id}', ${index})" title="Remove">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                  ` : ""}
-                </div>
-                `).join("")}
-              </div>
-              
-              ${existingRecord.status === "Open" ? `
-              <div class="bank-entry">
-                <input type="number" id="bankAmount" placeholder="Amount" step="0.01" min="0">
-                <input type="text" id="bankNote" placeholder="Note (optional)">
-                <button onclick="addBankRecord('${existingRecord.id}')"><i class="fas fa-plus"></i> Add</button>
-              </div>
-              ` : ""}
-            </div>
-            
-            <div class="form-section">
-              <h3>Notes</h3>
-              <textarea id="dailySalesNotes" placeholder="Additional notes..." ${existingRecord.status === "Closed" ? "disabled" : ""}>${existingRecord.notes || ""}</textarea>
-            </div>
-            
-            <div class="daily-sales-actions">
-              <button class="btn-cancel" onclick="showPage('dailySalesList')">Back to List</button>
-              ${existingRecord.status === "Open" ? `
-              <button class="btn-save" onclick="updateDailySales('${existingRecord.id}')">Save Changes</button>
-              ` : ""}
-            </div>
-          </div>
-        </div>
-      `;
-    } else {
-      // Create new record
-      const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
-      const totalSales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
-      
-      html = `
-        <div class="card">
-          <h1>Create Daily Sales - ${formatDate(today)}</h1>
-          <div class="daily-sales-form">
-            <div class="form-section">
-              <h3>Sales Summary</h3>
-              <div class="daily-sales-summary">
-                <div class="daily-summary-card">
-                  <h3>Total Sales</h3>
-                  <div class="value">RM${totalSales.toFixed(2)}</div>
-                  <div class="label">From ${todayCashbills.length} transactions</div>
-                </div>
-                <div class="daily-summary-card">
-                  <h3>Bank Deposits</h3>
-                  <div class="value">RM0.00</div>
-                  <div class="label">0 records</div>
-                </div>
-                <div class="daily-summary-card">
-                  <h3>Status</h3>
-                  <div class="value">
-                    <span class="status open">Open</span>
-                  </div>
-                  <div class="label">Ready to record bank deposits</div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h3>Today's Cashbills</h3>
-              <div class="cashbill-list">
-                ${todayCashbills.length > 0 ? todayCashbills.map(cb => `
-                <div class="cashbill-item">
-                  <div>${cb.id} - ${cb.customerName}</div>
-                  <div>RM${(cb.totalAmount || 0).toFixed(2)}</div>
-                </div>
-                `).join("") : "<p>No committed cashbills for today</p>"}
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h3>Bank Records</h3>
-              <div class="bank-records">
-                <p>No bank records added yet</p>
-              </div>
-              
-              <div class="bank-entry">
-                <input type="number" id="bankAmount" placeholder="Amount" step="0.01" min="0">
-                <input type="text" id="bankNote" placeholder="Note (optional)">
-                <button onclick="addBankRecordToNew()"><i class="fas fa-plus"></i> Add</button>
-              </div>
-            </div>
-            
-            <div class="form-section">
-              <h3>Notes</h3>
-              <textarea id="dailySalesNotes" placeholder="Additional notes..."></textarea>
-            </div>
-            
-            <div class="daily-sales-actions">
-              <button class="btn-cancel" onclick="showPage('dashboard')">Cancel</button>
-              <button class="btn-save" onclick="createDailySales()">Save Daily Sales</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-  }
-  
-  if (page === "dailySalesList") {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const paginatedDailySales = dailySales.slice(startIndex, endIndex);
-    
-    html = `
-      <div class="card">
-        <div class="card-header">
-          <h1>Daily Sales Records</h1>
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="dailySalesSearch" placeholder="Search records..." onkeyup="filterDailySales()">
-          </div>
-        </div>
-        
-        <div class="date-filter">
-          <input type="date" id="dsStartDate" placeholder="Start Date">
-          <input type="date" id="dsEndDate" placeholder="End Date">
-          <button onclick="filterDailySalesByDate()">Filter</button>
-          <button onclick="clearDateFilter('dailySales')">Clear</button>
-        </div>
-        
-        <div class="bulk-actions">
-          <button class="export" onclick="exportDailySales()">
-            <i class="fas fa-download"></i> Export CSV
-          </button>
-          <button class="print" onclick="printDailySales()">
-            <i class="fas fa-print"></i> Print
-          </button>
-        </div>
-        
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Date</th>
-              <th>Total Sales</th>
-              <th>Bank Deposits</th>
-              <th>Difference</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="dailySalesTableBody">
-            ${paginatedDailySales.map((ds, i) => {
-              const actualIndex = startIndex + i;
-              const difference = ds.totalSales - ds.totalBankDeposits;
-              return `
-              <tr>
-                <td>${ds.id}</td>
-                <td>${formatDate(ds.date)}</td>
-                <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
-                <td>RM${(ds.totalBankDeposits || 0).toFixed(2)}</td>
-                <td style="color: ${difference === 0 ? 'inherit' : difference > 0 ? '#ff3b30' : '#34c759'}">
-                  RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}
-                </td>
-                <td><span class="status ${ds.status.toLowerCase()}">${ds.status}</span></td>
-                <td class="actions">
-                  <button class="edit" onclick="viewDailySales('${ds.id}')" title="View"><i class="fas fa-eye"></i></button>
-                  ${ds.status === "Open" ? `
-                  <button class="edit" onclick="showPage('createDailySales')" title="Edit"><i class="fas fa-edit"></i></button>
-                  <button class="close-day" onclick="closeDailySales('${ds.id}')" title="Close Day"><i class="fas fa-lock"></i></button>
-                  ` : ""}
-                  ${currentUser.role === "admin" && ds.status === "Closed" ? `
-                  <button class="reopen-day" onclick="reopenDailySales('${ds.id}')" title="Reopen Day"><i class="fas fa-unlock"></i></button>
-                  ` : ""}
-                </td>
-              </tr>
-              `;
-            }).join("")}
-          </tbody>
-        </table>
-        
-        ${renderPagination(dailySales.length, 'dailySales')}
-      </div>
-    `;
-  }
-  
-  if (page === "viewDailySales") {
-    const dailySalesId = new URLSearchParams(window.location.search).get('id');
-    const dailySale = dailySales.find(ds => ds.id === dailySalesId);
-    
-    if (dailySale) {
-      const todayCashbills = cashbills.filter(cb => cb.date === dailySale.date && cb.status === "Committed");
-      const difference = dailySale.totalSales - dailySale.totalBankDeposits;
-      
-      html = `
-        <div class="card">
-          <div class="card-header">
-            <h1>Daily Sales Details - ${formatDate(dailySale.date)}</h1>
-            <button class="btn-cancel" onclick="showPage('dailySalesList')">Back to List</button>
-          </div>
-          
-          <div class="daily-sales-summary">
-            <div class="daily-summary-card">
-              <h3>Total Sales</h3>
-              <div class="value">RM${(dailySale.totalSales || 0).toFixed(2)}</div>
-              <div class="label">From ${todayCashbills.length} transactions</div>
-            </div>
-            <div class="daily-summary-card">
-              <h3>Bank Deposits</h3>
-              <div class="value">RM${(dailySale.totalBankDeposits || 0).toFixed(2)}</div>
-              <div class="label">${dailySale.bankRecords.length} records</div>
-            </div>
-            <div class="daily-summary-card">
-              <h3>Difference</h3>
-              <div class="value" style="color: ${difference === 0 ? 'inherit' : difference > 0 ? '#ff3b30' : '#34c759'}">
-                RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}
-              </div>
-              <div class="label">
-                <span class="status ${dailySale.status.toLowerCase()}">${dailySale.status}</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-section">
-            <h3>Cashbills</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Customer</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${todayCashbills.map(cb => `
-                <tr>
-                  <td>${cb.id}</td>
-                  <td>${cb.customerName}</td>
-                  <td>RM${(cb.totalAmount || 0).toFixed(2)}</td>
-                </tr>
-                `).join("")}
-              </tbody>
-            </table>
-          </div>
-          
-          <div class="form-section">
-            <h3>Bank Records</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Amount</th>
-                  <th>Note</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${dailySale.bankRecords.map(record => `
-                <tr>
-                  <td>RM${(record.amount || 0).toFixed(2)}</td>
-                  <td>${record.note || "-"}</td>
-                </tr>
-                `).join("")}
-              </tbody>
-            </table>
-          </div>
-          
-          ${dailySale.notes ? `
-          <div class="form-section">
-            <h3>Notes</h3>
-            <p>${dailySale.notes}</p>
-          </div>
-          ` : ""}
-          
-          <div class="daily-sales-actions">
-            <button class="btn-cancel" onclick="showPage('dailySalesList')">Back to List</button>
-            ${dailySale.status === "Open" ? `
-            <button class="btn-save" onclick="showPage('createDailySales')">Edit Record</button>
-            <button class="btn-close" onclick="closeDailySales('${dailySale.id}')">Close Day</button>
-            ` : ""}
-            ${currentUser.role === "admin" && dailySale.status === "Closed" ? `
-            <button class="reopen-day" onclick="reopenDailySales('${dailySale.id}')">Reopen Day</button>
-            ` : ""}
-          </div>
-        </div>
-      `;
-    } else {
-      html = `
-        <div class="card">
-          <h1>Daily Sales Record Not Found</h1>
-          <p>The requested daily sales record could not be found.</p>
-          <button class="btn-submit" onclick="showPage('dailySalesList')">Back to List</button>
-        </div>
-      `;
-    }
   }
   
   if (page === "createCashbill") {
@@ -2172,6 +1738,24 @@ function showPage(page) {
             
             <div class="total-section">
               Total: RM<span id="totalAmount">0.00</span>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <h3>Payment Method</h3>
+            <select id="paymentMethod">
+              <option value="Cash">Cash</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Credit Card">Credit Card</option>
+              <option value="E-Wallet">E-Wallet</option>
+            </select>
+            
+            <div id="paymentProofSection" class="hidden">
+              <label>Payment Proof (for Bank Transfer)</label>
+              <div class="payment-proof">
+                <input type="file" id="paymentProof" accept="image/*" onchange="previewPaymentProof(this)">
+                <div id="proofPreview"></div>
+              </div>
             </div>
           </div>
           
@@ -2232,6 +1816,7 @@ function showPage(page) {
               <th>Customer</th>
               <th>Date</th>
               <th>Total</th>
+              <th>Payment Method</th>
               <th>Status</th>
               <th>Actions</th>
             </tr>
@@ -2245,6 +1830,7 @@ function showPage(page) {
                 <td>${cb.customerName}</td>
                 <td>${formatDate(cb.date)}</td>
                 <td>RM${(cb.totalAmount || 0).toFixed(2)}</td>
+                <td>${cb.paymentMethod || 'N/A'}</td>
                 <td><span class="status ${cb.status.toLowerCase()}">${cb.status}</span></td>
                 <td class="actions">
                   <button class="edit" onclick="viewCashbill(${actualIndex})" title="View"><i class="fas fa-eye"></i></button>
@@ -2286,6 +1872,11 @@ function showPage(page) {
             <p><strong>Customer Name:</strong> ${cashbill.customerName}</p>
             <p><strong>Date:</strong> ${formatDate(cashbill.date)}</p>
             <p><strong>Status:</strong> <span class="status ${cashbill.status.toLowerCase()}">${cashbill.status}</span></p>
+            <p><strong>Payment Method:</strong> ${cashbill.paymentMethod || 'N/A'}</p>
+            ${cashbill.paymentProof ? `
+            <p><strong>Payment Proof:</strong></p>
+            <img src="${cashbill.paymentProof}" alt="Payment Proof" style="max-width: 200px; max-height: 200px; border-radius: 6px; border: 1px solid #d2d2d7;">
+            ` : ""}
           </div>
           
           <div class="form-section">
@@ -2418,6 +2009,326 @@ function showPage(page) {
       initializeMonthlySalesChart(monthlySales);
       initializeSalesStatusChart();
     }, 100);
+  }
+  
+  if (page === "createDailySales") {
+    const today = new Date().toISOString().split('T')[0];
+    const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
+    const todaySales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
+    
+    html = `
+      <div class="card">
+        <h1>Create Daily Sales Record</h1>
+        <div class="daily-sales-form">
+          <div class="form-section">
+            <h3>Date</h3>
+            <input type="date" id="dailySalesDate" value="${today}" readonly>
+          </div>
+          
+          <div class="form-section">
+            <h3>Today's Sales</h3>
+            <p>Total Sales: RM<span id="todaySales">${todaySales.toFixed(2)}</span></p>
+            <p>Number of Transactions: ${todayCashbills.length}</p>
+          </div>
+          
+          <div class="form-section">
+            <h3>Payment Methods</h3>
+            <div class="payment-methods" id="paymentMethods">
+              <div class="payment-method">
+                <label>Method:</label>
+                <select class="payment-method-select">
+                  <option value="Cash">Cash</option>
+                  <option value="Bank Transfer">Bank Transfer</option>
+                  <option value="Credit Card">Credit Card</option>
+                  <option value="E-Wallet">E-Wallet</option>
+                </select>
+                <label>Amount (RM):</label>
+                <input type="number" class="payment-amount" placeholder="0.00" step="0.01" min="0">
+                <button onclick="removePaymentMethod(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <button onclick="addPaymentMethod()"><i class="fas fa-plus"></i> Add Payment Method</button>
+          </div>
+          
+          <div class="form-section">
+            <h3>Notes</h3>
+            <textarea id="dailySalesNotes" placeholder="Additional notes..."></textarea>
+          </div>
+          
+          <div class="create-daily-sales-actions">
+            <button class="btn-cancel" onclick="showPage('dailySales')">Cancel</button>
+            <button class="btn-submit" onclick="saveDailySales()">Save Daily Sales</button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // Initialize after rendering
+    setTimeout(() => {
+      initializeDailySalesForm();
+    }, 100);
+  }
+  
+  if (page === "dailySales") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedDailySales = dailySales.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Daily Sales Records</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="dsSearch" placeholder="Search daily sales..." onkeyup="filterDailySales()">
+          </div>
+        </div>
+        
+        <div class="date-filter">
+          <input type="date" id="dsStartDate" placeholder="Start Date">
+          <input type="date" id="dsEndDate" placeholder="End Date">
+          <button onclick="filterDailySalesByDate()">Filter</button>
+          <button onclick="clearDateFilter('dailySales')">Clear</button>
+        </div>
+        
+        <div class="bulk-actions">
+          <button class="export" onclick="exportDailySales()">
+            <i class="fas fa-download"></i> Export CSV
+          </button>
+          <button class="print" onclick="printDailySales()">
+            <i class="fas fa-print"></i> Print
+          </button>
+        </div>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Total Sales</th>
+              <th>Payment Methods</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="dailySalesTableBody">
+            ${paginatedDailySales.map((ds, i) => {
+              const actualIndex = startIndex + i;
+              const paymentMethods = ds.paymentMethods.map(pm => 
+                `${pm.method}: RM${pm.amount.toFixed(2)}`
+              ).join(', ');
+              
+              return `
+              <tr>
+                <td>${ds.id}</td>
+                <td>${formatDate(ds.date)}</td>
+                <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
+                <td>${paymentMethods}</td>
+                <td><span class="status ${ds.status.toLowerCase()}">${ds.status}</span></td>
+                <td class="actions">
+                  <button class="edit" onclick="viewDailySales(${actualIndex})" title="View"><i class="fas fa-eye"></i></button>
+                  ${currentUser.role === "admin" ? `
+                  <button class="delete" onclick="confirmDeleteDailySales(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+                  ` : ""}
+                  ${ds.status === "Open" ? `
+                  <button class="commit" onclick="closeDailySales(${actualIndex})" title="Close"><i class="fas fa-lock"></i></button>
+                  ` : ""}
+                  ${currentUser.role === "admin" && ds.status === "Closed" ? `
+                  <button class="uncommit" onclick="reopenDailySales(${actualIndex})" title="Reopen"><i class="fas fa-unlock"></i></button>
+                  ` : ""}
+                </td>
+              </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+        
+        ${renderPagination(dailySales.length, 'dailySales')}
+      </div>
+    `;
+  }
+  
+  if (page === "viewDailySales") {
+    const salesId = new URLSearchParams(window.location.search).get('id');
+    const salesRecord = dailySales.find(ds => ds.id === salesId);
+    
+    if (salesRecord) {
+      const paymentMethods = salesRecord.paymentMethods.map(pm => 
+        `<div class="payment-method">
+          <strong>Method:</strong> ${pm.method}<br>
+          <strong>Amount:</strong> RM${pm.amount.toFixed(2)}<br>
+          ${pm.proof ? `<strong>Proof:</strong><br><img src="${pm.proof}" alt="Payment Proof" style="max-width: 200px; max-height: 200px; border-radius: 6px; border: 1px solid #d2d2d7;">` : ""}
+        </div>`
+      ).join("");
+      
+      html = `
+        <div class="card">
+          <div class="card-header">
+            <h1>Daily Sales Details</h1>
+            <button class="btn-cancel" onclick="showPage('dailySales')">Back to List</button>
+          </div>
+          
+          <div class="form-section">
+            <h3>Sales Information</h3>
+            <p><strong>ID:</strong> ${salesRecord.id}</p>
+            <p><strong>Date:</strong> ${formatDate(salesRecord.date)}</p>
+            <p><strong>Total Sales:</strong> RM${(salesRecord.totalSales || 0).toFixed(2)}</p>
+            <p><strong>Status:</strong> <span class="status ${salesRecord.status.toLowerCase()}">${salesRecord.status}</span></p>
+            ${salesRecord.status === "Closed" ? `
+            <p><strong>Closed By:</strong> ${salesRecord.closedBy}</p>
+            <p><strong>Closed At:</strong> ${formatDate(salesRecord.closedAt)}</p>
+            ` : ""}
+          </div>
+          
+          <div class="form-section">
+            <h3>Payment Methods</h3>
+            ${paymentMethods}
+          </div>
+          
+          ${salesRecord.notes ? `
+          <div class="form-section">
+            <h3>Notes</h3>
+            <p>${salesRecord.notes}</p>
+          </div>
+          ` : ""}
+          
+          <div class="create-daily-sales-actions">
+            <button class="btn-cancel" onclick="showPage('dailySales')">Back to List</button>
+            ${salesRecord.status === "Open" ? `
+            <button class="btn-submit" onclick="closeDailySales(${dailySales.indexOf(salesRecord)})">Close Daily Sales</button>
+            ` : ""}
+          </div>
+        </div>
+      `;
+    } else {
+      html = `
+        <div class="card">
+          <h1>Daily Sales Record Not Found</h1>
+          <p>The requested daily sales record could not be found.</p>
+          <button class="btn-submit" onclick="showPage('dailySales')">Back to List</button>
+        </div>
+      `;
+    }
+  }
+  
+  if (page === "bankRecords") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedBankRecords = bankRecords.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Bank Records</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="brSearch" placeholder="Search bank records..." onkeyup="filterBankRecords()">
+          </div>
+        </div>
+        
+        <div class="date-filter">
+          <input type="date" id="brStartDate" placeholder="Start Date">
+          <input type="date" id="brEndDate" placeholder="End Date">
+          <button onclick="filterBankRecordsByDate()">Filter</button>
+          <button onclick="clearDateFilter('bankRecords')">Clear</button>
+        </div>
+        
+        <div class="bulk-actions">
+          <button class="export" onclick="exportBankRecords()">
+            <i class="fas fa-download"></i> Export CSV
+          </button>
+          <button class="print" onclick="printBankRecords()">
+            <i class="fas fa-print"></i> Print
+          </button>
+        </div>
+        
+        <table class="bank-records-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Transaction ID</th>
+              <th>Amount</th>
+              <th>Payment Method</th>
+              <th>Cashbill ID</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bankRecordsTableBody">
+            ${paginatedBankRecords.map((br, i) => {
+              const actualIndex = startIndex + i;
+              return `
+              <tr>
+                <td>${br.id}</td>
+                <td>${formatDate(br.date)}</td>
+                <td>${br.transactionId}</td>
+                <td>RM${(br.amount || 0).toFixed(2)}</td>
+                <td>${br.paymentMethod}</td>
+                <td>${br.cashbillId || 'N/A'}</td>
+                <td><span class="status ${br.status.toLowerCase()}">${br.status}</span></td>
+                <td class="actions">
+                  <button class="edit" onclick="viewBankRecord(${actualIndex})" title="View"><i class="fas fa-eye"></i></button>
+                  ${currentUser.role === "admin" ? `
+                  <button class="delete" onclick="confirmDeleteBankRecord(${actualIndex})" title="Delete"><i class="fas fa-trash"></i></button>
+                  <button class="adjust" onclick="adjustBankRecord(${actualIndex})" title="Adjust"><i class="fas fa-edit"></i></button>
+                  ` : ""}
+                </td>
+              </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+        
+        ${renderPagination(bankRecords.length, 'bankRecords')}
+      </div>
+    `;
+  }
+  
+  if (page === "viewBankRecord") {
+    const recordId = new URLSearchParams(window.location.search).get('id');
+    const bankRecord = bankRecords.find(br => br.id === recordId);
+    
+    if (bankRecord) {
+      html = `
+        <div class="card">
+          <div class="card-header">
+            <h1>Bank Record Details</h1>
+            <button class="btn-cancel" onclick="showPage('bankRecords')">Back to List</button>
+          </div>
+          
+          <div class="form-section">
+            <h3>Transaction Information</h3>
+            <p><strong>ID:</strong> ${bankRecord.id}</p>
+            <p><strong>Date:</strong> ${formatDate(bankRecord.date)}</p>
+            <p><strong>Transaction ID:</strong> ${bankRecord.transactionId}</p>
+            <p><strong>Amount:</strong> RM${(bankRecord.amount || 0).toFixed(2)}</p>
+            <p><strong>Payment Method:</strong> ${bankRecord.paymentMethod}</p>
+            <p><strong>Cashbill ID:</strong> ${bankRecord.cashbillId || 'N/A'}</p>
+            <p><strong>Status:</strong> <span class="status ${bankRecord.status.toLowerCase()}">${bankRecord.status}</span></p>
+            ${bankRecord.proof ? `
+            <p><strong>Proof:</strong></p>
+            <img src="${bankRecord.proof}" alt="Payment Proof" style="max-width: 200px; max-height: 200px; border-radius: 6px; border: 1px solid #d2d2d7;">
+            ` : ""}
+          </div>
+          
+          <div class="create-daily-sales-actions">
+            <button class="btn-cancel" onclick="showPage('bankRecords')">Back to List</button>
+            ${currentUser.role === "admin" ? `
+            <button class="adjust" onclick="adjustBankRecord(${bankRecords.indexOf(bankRecord)})">Adjust Record</button>
+            ` : ""}
+          </div>
+        </div>
+      `;
+    } else {
+      html = `
+        <div class="card">
+          <h1>Bank Record Not Found</h1>
+          <p>The requested bank record could not be found.</p>
+          <button class="btn-submit" onclick="showPage('bankRecords')">Back to List</button>
+        </div>
+      `;
+    }
   }
   
   if (page === "createInventory") {
@@ -2958,6 +2869,8 @@ function showPage(page) {
 function initializeCashbillForm() {
   const itemSelect = document.getElementById('itemSelect');
   const itemQuantity = document.getElementById('itemQuantity');
+  const paymentMethod = document.getElementById('paymentMethod');
+  const paymentProofSection = document.getElementById('paymentProofSection');
   
   if (itemSelect && itemQuantity) {
     itemSelect.addEventListener('change', function() {
@@ -2968,6 +2881,21 @@ function initializeCashbillForm() {
       }
     });
   }
+  
+  if (paymentMethod && paymentProofSection) {
+    paymentMethod.addEventListener('change', function() {
+      if (this.value === "Bank Transfer") {
+        paymentProofSection.classList.remove('hidden');
+      } else {
+        paymentProofSection.classList.add('hidden');
+      }
+    });
+  }
+}
+// Initialize daily sales form
+function initializeDailySalesForm() {
+  // Add initial payment method
+  addPaymentMethod();
 }
 // Add item to cashbill
 let selectedItems = [];
@@ -3038,10 +2966,26 @@ function removeItemFromCashbill(index) {
   selectedItems.splice(index, 1);
   updateSelectedItemsTable();
 }
+// Preview payment proof
+function previewPaymentProof(input) {
+  const preview = document.getElementById('proofPreview');
+  
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      preview.innerHTML = `<img src="${e.target.result}" alt="Payment Proof" style="max-width: 200px; max-height: 200px; border-radius: 6px; border: 1px solid #d2d2d7;">`;
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 // Save cashbill
 function saveCashbill() {
   const customerName = document.getElementById('customerName').value.trim();
   const cashbillDate = document.getElementById('cashbillDate').value;
+  const paymentMethod = document.getElementById('paymentMethod').value;
+  const paymentProofInput = document.getElementById('paymentProof');
   const cashbillNotes = document.getElementById('cashbillNotes').value.trim();
   
   if (!customerName) {
@@ -3056,24 +3000,43 @@ function saveCashbill() {
   
   const totalAmount = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   
-  const newCashbill = {
-    id: 'CB' + Date.now(),
-    customerName: customerName,
-    date: cashbillDate,
-    items: [...selectedItems],
-    totalAmount: totalAmount,
-    notes: cashbillNotes,
-    status: "Draft",
-    createdBy: currentUser.name,
-    createdAt: new Date().toISOString()
-  };
+  // Handle payment proof
+  let paymentProof = "";
+  if (paymentMethod === "Bank Transfer" && paymentProofInput.files && paymentProofInput.files[0]) {
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      paymentProof = e.target.result;
+      saveCashbillWithProof();
+    }
+    
+    reader.readAsDataURL(paymentProofInput.files[0]);
+  } else {
+    saveCashbillWithProof();
+  }
   
-  cashbills.push(newCashbill);
-  saveData();
-  logActivity(`Created cashbill for ${customerName} - RM${totalAmount.toFixed(2)}`);
-  
-  showToast("Cashbill saved successfully", "success");
-  showPage('cashbills');
+  function saveCashbillWithProof() {
+    const newCashbill = {
+      id: 'CB' + Date.now(),
+      customerName: customerName,
+      date: cashbillDate,
+      items: [...selectedItems],
+      totalAmount: totalAmount,
+      paymentMethod: paymentMethod,
+      paymentProof: paymentProof,
+      notes: cashbillNotes,
+      status: "Draft",
+      createdBy: currentUser.name,
+      createdAt: new Date().toISOString()
+    };
+    
+    cashbills.push(newCashbill);
+    saveData();
+    logActivity(`Created cashbill for ${customerName} - RM${totalAmount.toFixed(2)} (${paymentMethod})`);
+    
+    showToast("Cashbill saved successfully", "success");
+    showPage('cashbills');
+  }
 }
 // Save inventory item
 function saveInventoryItem() {
@@ -3235,6 +3198,150 @@ function updateSetting(setting) {
   
   showToast("Setting updated", "success");
 }
+// Daily Sales Functions
+function addPaymentMethod() {
+  const paymentMethods = document.getElementById('paymentMethods');
+  
+  const newMethod = document.createElement('div');
+  newMethod.className = 'payment-method';
+  newMethod.innerHTML = `
+    <label>Method:</label>
+    <select class="payment-method-select">
+      <option value="Cash">Cash</option>
+      <option value="Bank Transfer">Bank Transfer</option>
+      <option value="Credit Card">Credit Card</option>
+      <option value="E-Wallet">E-Wallet</option>
+    </select>
+    <label>Amount (RM):</label>
+    <input type="number" class="payment-amount" placeholder="0.00" step="0.01" min="0">
+    <button onclick="removePaymentMethod(this)"><i class="fas fa-trash"></i></button>
+  `;
+  
+  paymentMethods.appendChild(newMethod);
+}
+function removePaymentMethod(button) {
+  const paymentMethods = document.getElementById('paymentMethods');
+  if (paymentMethods.children.length > 1) {
+    button.parentElement.remove();
+  } else {
+    showToast("At least one payment method is required", "error");
+  }
+}
+function saveDailySales() {
+  const dailySalesDate = document.getElementById('dailySalesDate').value;
+  const dailySalesNotes = document.getElementById('dailySalesNotes').value.trim();
+  
+  if (!dailySalesDate) {
+    showToast("Please select a date", "error");
+    return;
+  }
+  
+  // Collect payment methods
+  const paymentMethods = [];
+  let totalAmount = 0;
+  
+  document.querySelectorAll('.payment-method').forEach(method => {
+    const methodType = method.querySelector('.payment-method-select').value;
+    const amount = parseFloat(method.querySelector('.payment-amount').value) || 0;
+    
+    if (amount > 0) {
+      paymentMethods.push({
+        method: methodType,
+        amount: amount,
+        proof: "" // Will be populated if needed
+      });
+      totalAmount += amount;
+    }
+  });
+  
+  if (paymentMethods.length === 0) {
+    showToast("Please add at least one payment method with amount", "error");
+    return;
+  }
+  
+  // Check if daily sales record already exists for this date
+  const existingRecord = dailySales.find(ds => ds.date === dailySalesDate);
+  
+  if (existingRecord) {
+    showToast("Daily sales record already exists for this date", "error");
+    return;
+  }
+  
+  const newDailySales = {
+    id: 'DS' + Date.now(),
+    date: dailySalesDate,
+    totalSales: totalAmount,
+    paymentMethods: paymentMethods,
+    notes: dailySalesNotes,
+    status: "Open",
+    createdBy: currentUser.name,
+    createdAt: new Date().toISOString()
+  };
+  
+  dailySales.push(newDailySales);
+  saveData();
+  logActivity(`Created daily sales record for ${formatDate(dailySalesDate)} - RM${totalAmount.toFixed(2)}`);
+  
+  showToast("Daily sales record saved successfully", "success");
+  showPage('dailySales');
+}
+function closeDailySales(index) {
+  dailySales[index].status = "Closed";
+  dailySales[index].closedBy = currentUser.name;
+  dailySales[index].closedAt = new Date().toISOString();
+  
+  saveData();
+  logActivity(`Closed daily sales record: ${dailySales[index].date}`);
+  
+  showToast("Daily sales record closed successfully", "success");
+  showPage('dailySales');
+}
+function reopenDailySales(index) {
+  if (currentUser.role !== "admin") {
+    showToast("Only admin can reopen daily sales records", "error");
+    return;
+  }
+  
+  dailySales[index].status = "Open";
+  delete dailySales[index].closedBy;
+  delete dailySales[index].closedAt;
+  
+  saveData();
+  logActivity(`Reopened daily sales record: ${dailySales[index].date}`);
+  
+  showToast("Daily sales record reopened successfully", "warning");
+  showPage('dailySales');
+}
+function viewDailySales(index) {
+  const salesRecord = dailySales[index];
+  const url = `?id=${salesRecord.id}`;
+  window.history.pushState({}, '', url);
+  showPage('viewDailySales');
+}
+function adjustBankRecord(index) {
+  if (currentUser.role !== "admin") {
+    showToast("Only admin can adjust bank records", "error");
+    return;
+  }
+  
+  const bankRecord = bankRecords[index];
+  const newAmount = prompt("Adjust amount (RM):", bankRecord.amount);
+  
+  if (newAmount !== null && !isNaN(newAmount) && parseFloat(newAmount) >= 0) {
+    const oldAmount = bankRecord.amount;
+    bankRecord.amount = parseFloat(newAmount);
+    saveData();
+    logActivity(`Adjusted bank record ${bankRecord.id} from RM${oldAmount.toFixed(2)} to RM${bankRecord.amount.toFixed(2)}`);
+    showToast("Bank record adjusted successfully", "success");
+    showPage('bankRecords');
+  }
+}
+function viewBankRecord(index) {
+  const bankRecord = bankRecords[index];
+  const url = `?id=${bankRecord.id}`;
+  window.history.pushState({}, '', url);
+  showPage('viewBankRecord');
+}
 // View cashbill details
 function viewCashbill(index) {
   const cashbill = cashbills[index];
@@ -3247,6 +3354,24 @@ function commitCashbill(index) {
   cashbills[index].status = "Committed";
   cashbills[index].committedBy = currentUser.name;
   cashbills[index].committedAt = new Date().toISOString();
+  
+  // Create bank record if payment method is Bank Transfer
+  if (cashbills[index].paymentMethod === "Bank Transfer") {
+    const newBankRecord = {
+      id: 'BR' + Date.now(),
+      date: cashbills[index].date,
+      transactionId: 'TXN' + Date.now(),
+      amount: cashbills[index].totalAmount,
+      paymentMethod: "Bank Transfer",
+      cashbillId: cashbills[index].id,
+      proof: cashbills[index].paymentProof || "",
+      status: "Confirmed",
+      createdBy: currentUser.name,
+      createdAt: new Date().toISOString()
+    };
+    
+    bankRecords.push(newBankRecord);
+  }
   
   saveData();
   logActivity(`Committed cashbill: ${cashbills[index].customerName}`);
@@ -3265,218 +3390,17 @@ function uncommitCashbill(index) {
   delete cashbills[index].committedBy;
   delete cashbills[index].committedAt;
   
+  // Remove corresponding bank record if exists
+  const bankRecordIndex = bankRecords.findIndex(br => br.cashbillId === cashbills[index].id);
+  if (bankRecordIndex !== -1) {
+    bankRecords.splice(bankRecordIndex, 1);
+  }
+  
   saveData();
   logActivity(`Uncommitted cashbill: ${cashbills[index].customerName}`);
   
   showToast("Cashbill uncommitted successfully", "warning");
   showPage('cashbills');
-}
-// Daily Sales Functions
-function createDailySales() {
-  const today = new Date().toISOString().split('T')[0];
-  const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
-  const totalSales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
-  const notes = document.getElementById('dailySalesNotes').value.trim();
-  
-  // Check if record already exists
-  if (dailySales.find(ds => ds.date === today)) {
-    showToast("Daily sales record for today already exists", "error");
-    return;
-  }
-  
-  const newDailySales = {
-    id: 'DS' + Date.now(),
-    date: today,
-    totalSales: totalSales,
-    bankRecords: [],
-    totalBankDeposits: 0,
-    notes: notes,
-    status: "Open",
-    createdBy: currentUser.name,
-    createdAt: new Date().toISOString()
-  };
-  
-  dailySales.push(newDailySales);
-  saveData();
-  logActivity(`Created daily sales record for ${today}`);
-  
-  showToast("Daily sales record created successfully", "success");
-  showPage('createDailySales');
-}
-function updateDailySales(id) {
-  const record = dailySales.find(ds => ds.id === id);
-  if (!record) return;
-  
-  const notes = document.getElementById('dailySalesNotes').value.trim();
-  
-  record.notes = notes;
-  saveData();
-  logActivity(`Updated daily sales record for ${record.date}`);
-  
-  showToast("Daily sales record updated successfully", "success");
-  showPage('createDailySales');
-}
-function closeDailySales(id) {
-  const record = dailySales.find(ds => ds.id === id);
-  if (!record) return;
-  
-  // Check if there's a difference between sales and bank deposits
-  const difference = record.totalSales - record.totalBankDeposits;
-  if (difference !== 0) {
-    showToast(`Cannot close day: There is a difference of RM${Math.abs(difference).toFixed(2)} between sales and bank deposits`, "error");
-    return;
-  }
-  
-  record.status = "Closed";
-  record.closedBy = currentUser.name;
-  record.closedAt = new Date().toISOString();
-  
-  saveData();
-  logActivity(`Closed daily sales record for ${record.date}`);
-  
-  showToast("Daily sales record closed successfully", "success");
-  showPage('createDailySales');
-}
-function reopenDailySales(id) {
-  if (currentUser.role !== "admin") {
-    showToast("Only admin can reopen daily sales records", "error");
-    return;
-  }
-  
-  const record = dailySales.find(ds => ds.id === id);
-  if (!record) return;
-  
-  record.status = "Open";
-  delete record.closedBy;
-  delete record.closedAt;
-  
-  saveData();
-  logActivity(`Reopened daily sales record for ${record.date}`);
-  
-  showToast("Daily sales record reopened successfully", "warning");
-  showPage('createDailySales');
-}
-function addBankRecordToNew() {
-  const amount = parseFloat(document.getElementById('bankAmount').value) || 0;
-  const note = document.getElementById('bankNote').value.trim();
-  
-  if (amount <= 0) {
-    showToast("Please enter a valid amount", "error");
-    return;
-  }
-  
-  // Add to temporary bank records array
-  if (!window.tempBankRecords) {
-    window.tempBankRecords = [];
-  }
-  
-  window.tempBankRecords.push({
-    amount: amount,
-    note: note
-  });
-  
-  // Update display
-  updateBankRecordsDisplay();
-  
-  // Reset form
-  document.getElementById('bankAmount').value = "";
-  document.getElementById('bankNote').value = "";
-  
-  showToast("Bank record added", "success");
-}
-function addBankRecord(id) {
-  const amount = parseFloat(document.getElementById('bankAmount').value) || 0;
-  const note = document.getElementById('bankNote').value.trim();
-  
-  if (amount <= 0) {
-    showToast("Please enter a valid amount", "error");
-    return;
-  }
-  
-  const record = dailySales.find(ds => ds.id === id);
-  if (!record) return;
-  
-  record.bankRecords.push({
-    amount: amount,
-    note: note
-  });
-  
-  // Update total bank deposits
-  record.totalBankDeposits = record.bankRecords.reduce((sum, br) => sum + br.amount, 0);
-  
-  saveData();
-  logActivity(`Added bank record of RM${amount.toFixed(2)} to daily sales for ${record.date}`);
-  
-  // Refresh the page
-  showPage('createDailySales');
-  
-  showToast("Bank record added", "success");
-}
-function removeBankRecord(id, index) {
-  const record = dailySales.find(ds => ds.id === id);
-  if (!record) return;
-  
-  const removedAmount = record.bankRecords[index].amount;
-  record.bankRecords.splice(index, 1);
-  
-  // Update total bank deposits
-  record.totalBankDeposits = record.bankRecords.reduce((sum, br) => sum + br.amount, 0);
-  
-  saveData();
-  logActivity(`Removed bank record of RM${removedAmount.toFixed(2)} from daily sales for ${record.date}`);
-  
-  // Refresh the page
-  showPage('createDailySales');
-  
-  showToast("Bank record removed", "success");
-}
-function updateBankRecordsDisplay() {
-  if (!window.tempBankRecords) return;
-  
-  const bankRecordsContainer = document.querySelector('.bank-records');
-  if (!bankRecordsContainer) return;
-  
-  let html = '';
-  let total = 0;
-  
-  window.tempBankRecords.forEach((record, index) => {
-    total += record.amount;
-    html += `
-    <div class="bank-record-item">
-      <div>${record.note || "Bank deposit"}</div>
-      <div class="amount">RM${record.amount.toFixed(2)}</div>
-      <button class="delete" onclick="removeTempBankRecord(${index})" title="Remove">
-        <i class="fas fa-trash"></i>
-      </button>
-    </div>
-    `;
-  });
-  
-  bankRecordsContainer.innerHTML = html || '<p>No bank records added yet</p>';
-  
-  // Update total in the summary card
-  const totalBankElement = document.querySelector('.daily-summary-card:nth-child(2) .value');
-  if (totalBankElement) {
-    totalBankElement.textContent = `RM${total.toFixed(2)}`;
-  }
-  
-  // Update record count
-  const countElement = document.querySelector('.daily-summary-card:nth-child(2) .label');
-  if (countElement) {
-    countElement.textContent = `${window.tempBankRecords.length} records`;
-  }
-}
-function removeTempBankRecord(index) {
-  if (!window.tempBankRecords) return;
-  
-  window.tempBankRecords.splice(index, 1);
-  updateBankRecordsDisplay();
-  showToast("Bank record removed", "success");
-}
-function viewDailySales(id) {
-  const url = `?id=${id}`;
-  window.history.pushState({}, '', url);
-  showPage('viewDailySales');
 }
 // Delete functions
 function confirmDeleteCashbill(index) {
@@ -3554,6 +3478,36 @@ function deleteUser(index) {
   showToast("User deleted", "success");
   showPage("users");
 }
+function confirmDeleteDailySales(index) {
+  showConfirmModal(
+    "Delete Daily Sales Record",
+    "Are you sure you want to delete this daily sales record?",
+    () => deleteDailySales(index)
+  );
+}
+function deleteDailySales(index) {
+  const record = dailySales[index];
+  dailySales.splice(index, 1);
+  saveData();
+  logActivity(`Deleted daily sales record: ${record.date}`);
+  showToast("Daily sales record deleted", "success");
+  showPage("dailySales");
+}
+function confirmDeleteBankRecord(index) {
+  showConfirmModal(
+    "Delete Bank Record",
+    "Are you sure you want to delete this bank record?",
+    () => deleteBankRecord(index)
+  );
+}
+function deleteBankRecord(index) {
+  const record = bankRecords[index];
+  bankRecords.splice(index, 1);
+  saveData();
+  logActivity(`Deleted bank record: ${record.id}`);
+  showToast("Bank record deleted", "success");
+  showPage("bankRecords");
+}
 // Filter functions
 function filterCashbills() {
   const searchTerm = document.getElementById("cbSearch").value.toLowerCase();
@@ -3586,6 +3540,7 @@ function filterCashbillsByDate() {
       <td>${cb.customerName}</td>
       <td>${formatDate(cb.date)}</td>
       <td>RM${(cb.totalAmount || 0).toFixed(2)}</td>
+      <td>${cb.paymentMethod || 'N/A'}</td>
       <td><span class="status ${cb.status.toLowerCase()}">${cb.status}</span></td>
       <td class="actions">
         <button class="edit" onclick="viewCashbill(${cashbills.indexOf(cb)})" title="View"><i class="fas fa-eye"></i></button>
@@ -3735,12 +3690,13 @@ function filterActivityByDate() {
   showToast(`Found ${filteredActivity.length} activities in the selected date range`, "success");
 }
 function filterDailySales() {
-  const searchTerm = document.getElementById("dailySalesSearch").value.toLowerCase();
+  const searchTerm = document.getElementById("dsSearch").value.toLowerCase();
   const rows = document.querySelectorAll("#dailySalesTableBody tr");
   
   rows.forEach(row => {
     const id = row.cells[0].textContent.toLowerCase();
-    row.style.display = id.includes(searchTerm) ? "" : "none";
+    const date = row.cells[1].textContent.toLowerCase();
+    row.style.display = id.includes(searchTerm) || date.includes(searchTerm) ? "" : "none";
   });
 }
 function filterDailySalesByDate() {
@@ -3760,25 +3716,27 @@ function filterDailySalesByDate() {
   // Update the table with filtered results
   const tbody = document.getElementById("dailySalesTableBody");
   tbody.innerHTML = filteredDailySales.map(ds => {
-    const difference = ds.totalSales - ds.totalBankDeposits;
+    const paymentMethods = ds.paymentMethods.map(pm => 
+      `${pm.method}: RM${pm.amount.toFixed(2)}`
+    ).join(', ');
+    
     return `
     <tr>
       <td>${ds.id}</td>
       <td>${formatDate(ds.date)}</td>
       <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
-      <td>RM${(ds.totalBankDeposits || 0).toFixed(2)}</td>
-      <td style="color: ${difference === 0 ? 'inherit' : difference > 0 ? '#ff3b30' : '#34c759'}">
-        RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}
-      </td>
+      <td>${paymentMethods}</td>
       <td><span class="status ${ds.status.toLowerCase()}">${ds.status}</span></td>
       <td class="actions">
-        <button class="edit" onclick="viewDailySales('${ds.id}')" title="View"><i class="fas fa-eye"></i></button>
+        <button class="edit" onclick="viewDailySales(${dailySales.indexOf(ds)})" title="View"><i class="fas fa-eye"></i></button>
+        ${currentUser.role === "admin" ? `
+        <button class="delete" onclick="confirmDeleteDailySales(${dailySales.indexOf(ds)})" title="Delete"><i class="fas fa-trash"></i></button>
+        ` : ""}
         ${ds.status === "Open" ? `
-        <button class="edit" onclick="showPage('createDailySales')" title="Edit"><i class="fas fa-edit"></i></button>
-        <button class="close-day" onclick="closeDailySales('${ds.id}')" title="Close Day"><i class="fas fa-lock"></i></button>
+        <button class="commit" onclick="closeDailySales(${dailySales.indexOf(ds)})" title="Close"><i class="fas fa-lock"></i></button>
         ` : ""}
         ${currentUser.role === "admin" && ds.status === "Closed" ? `
-        <button class="reopen-day" onclick="reopenDailySales('${ds.id}')" title="Reopen Day"><i class="fas fa-unlock"></i></button>
+        <button class="uncommit" onclick="reopenDailySales(${dailySales.indexOf(ds)})" title="Reopen"><i class="fas fa-unlock"></i></button>
         ` : ""}
       </td>
     </tr>
@@ -3787,12 +3745,59 @@ function filterDailySalesByDate() {
   
   showToast(`Found ${filteredDailySales.length} daily sales records in the selected date range`, "success");
 }
+function filterBankRecords() {
+  const searchTerm = document.getElementById("brSearch").value.toLowerCase();
+  const rows = document.querySelectorAll("#bankRecordsTableBody tr");
+  
+  rows.forEach(row => {
+    const id = row.cells[0].textContent.toLowerCase();
+    const transactionId = row.cells[2].textContent.toLowerCase();
+    row.style.display = id.includes(searchTerm) || transactionId.includes(searchTerm) ? "" : "none";
+  });
+}
+function filterBankRecordsByDate() {
+  const startDate = document.getElementById("brStartDate").value;
+  const endDate = document.getElementById("brEndDate").value;
+  
+  if (!startDate || !endDate) {
+    showToast("Please select both start and end dates", "error");
+    return;
+  }
+  
+  const filteredBankRecords = bankRecords.filter(br => {
+    const brDate = new Date(br.date).toISOString().split('T')[0];
+    return brDate >= startDate && brDate <= endDate;
+  });
+  
+  // Update the table with filtered results
+  const tbody = document.getElementById("bankRecordsTableBody");
+  tbody.innerHTML = filteredBankRecords.map(br => `
+    <tr>
+      <td>${br.id}</td>
+      <td>${formatDate(br.date)}</td>
+      <td>${br.transactionId}</td>
+      <td>RM${(br.amount || 0).toFixed(2)}</td>
+      <td>${br.paymentMethod}</td>
+      <td>${br.cashbillId || 'N/A'}</td>
+      <td><span class="status ${br.status.toLowerCase()}">${br.status}</span></td>
+      <td class="actions">
+        <button class="edit" onclick="viewBankRecord(${bankRecords.indexOf(br)})" title="View"><i class="fas fa-eye"></i></button>
+        ${currentUser.role === "admin" ? `
+        <button class="delete" onclick="confirmDeleteBankRecord(${bankRecords.indexOf(br)})" title="Delete"><i class="fas fa-trash"></i></button>
+        <button class="adjust" onclick="adjustBankRecord(${bankRecords.indexOf(br)})" title="Adjust"><i class="fas fa-edit"></i></button>
+        ` : ""}
+      </td>
+    </tr>
+  `).join("");
+  
+  showToast(`Found ${filteredBankRecords.length} bank records in the selected date range`, "success");
+}
 // Export functions
 function exportCashbills() {
-  let csv = 'ID,Customer,Date,Total,Status\n';
+  let csv = 'ID,Customer,Date,Total,Payment Method,Status\n';
   
   cashbills.forEach(cb => {
-    csv += `"${cb.id}","${cb.customerName}","${formatDate(cb.date)}",${cb.totalAmount || 0},"${cb.status}"\n`;
+    csv += `"${cb.id}","${cb.customerName}","${formatDate(cb.date)}",${cb.totalAmount || 0},"${cb.paymentMethod || ''}","${cb.status}"\n`;
   });
   
   downloadCSV(csv, 'cashbills.csv');
@@ -3809,27 +3814,25 @@ function exportInventory() {
   showToast("Inventory exported successfully", "success");
 }
 function exportDailySales() {
-  let csv = 'ID,Date,Total Sales,Bank Deposits,Difference,Status,Created By,Created At';
-  
-  if (currentUser.role === "admin") {
-    csv += ',Closed By,Closed At';
-  }
-  
-  csv += '\n';
+  let csv = 'ID,Date,Total Sales,Payment Methods,Status\n';
   
   dailySales.forEach(ds => {
-    const difference = ds.totalSales - ds.totalBankDeposits;
-    csv += `"${ds.id}","${formatDate(ds.date)}",${ds.totalSales || 0},${ds.totalBankDeposits || 0},${difference.toFixed(2)},"${ds.status}","${ds.createdBy}","${formatDate(ds.createdAt)}"`;
-    
-    if (currentUser.role === "admin") {
-      csv += `,"${ds.closedBy || ''}","${ds.closedAt ? formatDate(ds.closedAt) : ''}"`;
-    }
-    
-    csv += '\n';
+    const paymentMethods = ds.paymentMethods.map(pm => `${pm.method}: RM${pm.amount.toFixed(2)}`).join('; ');
+    csv += `"${ds.id}","${formatDate(ds.date)}",${ds.totalSales || 0},"${paymentMethods}","${ds.status}"\n`;
   });
   
   downloadCSV(csv, 'daily_sales.csv');
   showToast("Daily sales exported successfully", "success");
+}
+function exportBankRecords() {
+  let csv = 'ID,Date,Transaction ID,Amount,Payment Method,Cashbill ID,Status\n';
+  
+  bankRecords.forEach(br => {
+    csv += `"${br.id}","${formatDate(br.date)}","${br.transactionId}",${br.amount || 0},"${br.paymentMethod}","${br.cashbillId || ''}","${br.status}"\n`;
+  });
+  
+  downloadCSV(csv, 'bank_records.csv');
+  showToast("Bank records exported successfully", "success");
 }
 // Print functions
 function printCashbills() {
@@ -3844,6 +3847,7 @@ function printCashbills() {
             <th>Customer</th>
             <th>Date</th>
             <th>Total</th>
+            <th>Payment Method</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -3854,6 +3858,7 @@ function printCashbills() {
               <td>${cb.customerName}</td>
               <td>${formatDate(cb.date)}</td>
               <td>RM${(cb.totalAmount || 0).toFixed(2)}</td>
+              <td>${cb.paymentMethod || 'N/A'}</td>
               <td>${cb.status}</td>
             </tr>
           `).join("")}
@@ -3943,23 +3948,21 @@ function printDailySales() {
             <th>ID</th>
             <th>Date</th>
             <th>Total Sales</th>
-            <th>Bank Deposits</th>
-            <th>Difference</th>
+            <th>Payment Methods</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
           ${dailySales.map(ds => {
-            const difference = ds.totalSales - ds.totalBankDeposits;
+            const paymentMethods = ds.paymentMethods.map(pm => `${pm.method}: RM${pm.amount.toFixed(2)}`).join(', ');
             return `
-            <tr>
-              <td>${ds.id}</td>
-              <td>${formatDate(ds.date)}</td>
-              <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
-              <td>RM${(ds.totalBankDeposits || 0).toFixed(2)}</td>
-              <td>RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}</td>
-              <td>${ds.status}</td>
-            </tr>
+              <tr>
+                <td>${ds.id}</td>
+                <td>${formatDate(ds.date)}</td>
+                <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
+                <td>${paymentMethods}</td>
+                <td>${ds.status}</td>
+              </tr>
             `;
           }).join("")}
         </tbody>
@@ -3972,6 +3975,60 @@ function printDailySales() {
     <html>
       <head>
         <title>Daily Sales Report</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          th { background-color: #f2f2f2; }
+        </style>
+      </head>
+      <body>${printContent}</body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+  
+  showToast("Print dialog opened", "success");
+}
+function printBankRecords() {
+  const printContent = `
+    <div class="print-area">
+      <h1>Bank Records Report</h1>
+      <p>Generated on: ${new Date().toLocaleString()}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Transaction ID</th>
+            <th>Amount</th>
+            <th>Payment Method</th>
+            <th>Cashbill ID</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${bankRecords.map(br => `
+            <tr>
+              <td>${br.id}</td>
+              <td>${formatDate(br.date)}</td>
+              <td>${br.transactionId}</td>
+              <td>RM${(br.amount || 0).toFixed(2)}</td>
+              <td>${br.paymentMethod}</td>
+              <td>${br.cashbillId || 'N/A'}</td>
+              <td>${br.status}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+  
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Bank Records Report</title>
         <style>
           body { font-family: Arial, sans-serif; margin: 20px; }
           table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -4020,6 +4077,7 @@ function saveData() {
   localStorage.setItem('activityLog', JSON.stringify(activityLog));
   localStorage.setItem('settings', JSON.stringify(settings));
   localStorage.setItem('dailySales', JSON.stringify(dailySales));
+  localStorage.setItem('bankRecords', JSON.stringify(bankRecords));
 }
 function showToast(message, type = "success") {
   const toast = document.getElementById("toast");
@@ -4046,7 +4104,11 @@ function formatDate(dateString) {
   if (!dateString) return "N/A";
   
   const date = new Date(dateString);
-  return date.toLocaleDateString();
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  
+  return `${day}/${month}/${year}`;
 }
 function downloadCSV(csv, filename) {
   const blob = new Blob([csv], { type: 'text/csv' });
@@ -4124,7 +4186,11 @@ function clearDateFilter(type) {
   } else if (type === 'dailySales') {
     document.getElementById('dsStartDate').value = '';
     document.getElementById('dsEndDate').value = '';
-    showPage('dailySalesList');
+    showPage('dailySales');
+  } else if (type === 'bankRecords') {
+    document.getElementById('brStartDate').value = '';
+    document.getElementById('brEndDate').value = '';
+    showPage('bankRecords');
   }
   
   showToast("Date filter cleared", "success");
@@ -4403,6 +4469,11 @@ function getInventoryStatus(quantity) {
   } else {
     return { text: 'In Stock', class: 'in-stock' };
   }
+}
+function getTodaySales() {
+  const today = new Date().toISOString().split('T')[0];
+  const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
+  return todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
 }
 // Auto logout after 30 minutes of inactivity
 let inactivityTimer;
