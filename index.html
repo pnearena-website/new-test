@@ -18,11 +18,9 @@
   --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-
 * {
   box-sizing: border-box;
 }
-
 body {
   margin:0;
   background:var(--bg);
@@ -33,7 +31,6 @@ body {
   letter-spacing: -0.022em;
   overflow-x: hidden;
 }
-
 body.dark-mode {
   --bg: #1d1d1f;
   --white: #2d2d30;
@@ -42,16 +39,13 @@ body.dark-mode {
   --text: #f5f5f7;
   --muted: #a1a1a6;
 }
-
 button,input,select,textarea {
   font-family: inherit;
   font-size: 15px;
 }
-
 .hidden {
   display: none !important;
 }
-
 /* Login */
 .login-container {
   display: flex;
@@ -61,7 +55,6 @@ button,input,select,textarea {
   background: linear-gradient(180deg, #fff, #f5f5f7);
   padding: 20px;
 }
-
 .login-box {
   background: var(--white);
   padding: 40px;
@@ -71,11 +64,9 @@ button,input,select,textarea {
   text-align: center;
   transition: var(--transition);
 }
-
 .login-box:hover {
   box-shadow: 0 8px 30px rgba(0,0,0,0.12);
 }
-
 .login-box h2 {
   margin-bottom: 30px;
   font-weight: 600;
@@ -83,20 +74,17 @@ button,input,select,textarea {
   letter-spacing: 0.008em;
   color: var(--accent);
 }
-
 .login-box .logo {
   margin-bottom: 20px;
   font-size: 64px;
   color: var(--accent);
 }
-
 .login-box .company-name {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 30px;
   color: var(--text);
 }
-
 .login-box input {
   width: 100%;
   padding: 14px;
@@ -106,13 +94,11 @@ button,input,select,textarea {
   font-size: 17px;
   transition: var(--transition);
 }
-
 .login-box input:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
-
 .login-box button {
   width: 100%;
   padding: 14px;
@@ -125,16 +111,13 @@ button,input,select,textarea {
   margin-top: 10px;
   transition: var(--transition);
 }
-
 .login-box button:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
 }
-
 .login-box button:active {
   transform: translateY(1px);
 }
-
 .error {
   color: #ff3b30;
   font-size: 14px;
@@ -143,14 +126,12 @@ button,input,select,textarea {
   background: rgba(255, 59, 48, 0.1);
   border-radius: 6px;
 }
-
 /* Layout */
 .app {
   display: none;
   height: 100vh;
   overflow: hidden;
 }
-
 .topbar {
   height: 70px;
   background: var(--white);
@@ -164,7 +145,6 @@ button,input,select,textarea {
   right: 0;
   z-index: 100;
 }
-
 .hamburger {
   font-size: 24px;
   cursor: pointer;
@@ -180,34 +160,28 @@ button,input,select,textarea {
   align-items: center;
   justify-content: center;
 }
-
 .hamburger:hover {
   background: rgba(0, 0, 0, 0.05);
 }
-
 .company-logo {
   display: flex;
   align-items: center;
   margin-right: 30px;
 }
-
 .company-logo i {
   font-size: 28px;
   color: var(--accent);
   margin-right: 10px;
 }
-
 .company-name {
   font-size: 20px;
   font-weight: 600;
   color: var(--accent);
 }
-
 #welcomeText {
   font-weight: 600;
   font-size: 18px;
 }
-
 .logout-btn {
   margin-left: auto;
   background: none;
@@ -219,12 +193,10 @@ button,input,select,textarea {
   border-radius: 8px;
   transition: var(--transition);
 }
-
 .logout-btn:hover {
   background: rgba(0, 0, 0, 0.05);
   color: var(--text);
 }
-
 .sidebar {
   width: 280px;
   background: var(--white);
@@ -239,15 +211,12 @@ button,input,select,textarea {
   z-index: 90;
   overflow-y: auto;
 }
-
 .sidebar.open {
   transform: translateX(0);
 }
-
 .sidebar-category {
   margin: 15px 0;
 }
-
 .sidebar-category-title {
   padding: 10px 20px;
   font-size: 12px;
@@ -256,7 +225,6 @@ button,input,select,textarea {
   color: var(--muted);
   letter-spacing: 0.05em;
 }
-
 .sidebar a {
   display: flex;
   align-items: center;
@@ -266,28 +234,23 @@ button,input,select,textarea {
   transition: background 0.2s;
   font-weight: 500;
 }
-
 .sidebar a i {
   margin-right: 12px;
   width: 20px;
   text-align: center;
   color: var(--muted);
 }
-
 .sidebar a:hover {
   background: rgba(0, 0, 0, 0.03);
 }
-
 .sidebar a.active {
   background: rgba(0, 113, 227, 0.1);
   color: var(--accent);
   font-weight: 600;
 }
-
 .sidebar a.active i {
   color: var(--accent);
 }
-
 .main {
   margin-left: 0;
   padding: 90px 30px 30px;
@@ -295,25 +258,21 @@ button,input,select,textarea {
   overflow: auto;
   height: calc(100vh - 70px);
 }
-
 .sidebar.open ~ .main {
   margin-left: 280px;
 }
-
 h1 {
   font-weight: 600;
   margin: 0 0 20px;
   font-size: 32px;
   letter-spacing: 0.004em;
 }
-
 h2 {
   font-weight: 600;
   margin: 20px 0 15px;
   font-size: 24px;
   letter-spacing: 0.004em;
 }
-
 .card {
   background: var(--white);
   padding: 24px;
@@ -322,11 +281,9 @@ h2 {
   margin-bottom: 20px;
   transition: var(--transition);
 }
-
 .card:hover {
   box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -335,12 +292,10 @@ h2 {
   flex-wrap: wrap;
   gap: 10px;
 }
-
 .search-box {
   position: relative;
   width: 300px;
 }
-
 .search-box input {
   width: 100%;
   padding: 8px 12px 8px 36px;
@@ -349,13 +304,11 @@ h2 {
   font-size: 14px;
   transition: var(--transition);
 }
-
 .search-box input:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
-
 .search-box i {
   position: absolute;
   left: 12px;
@@ -363,19 +316,16 @@ h2 {
   transform: translateY(-50%);
   color: var(--muted);
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
-
 th, td {
   padding: 12px 15px;
   border-bottom: 1px solid #eee;
   text-align: left;
 }
-
 th {
   font-weight: 600;
   color: var(--muted);
@@ -383,17 +333,14 @@ th {
   text-transform: uppercase;
   letter-spacing: 0.01em;
 }
-
 tr:hover {
   background: rgba(0, 0, 0, 0.01);
 }
-
 .actions {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
-
 .actions button {
   padding: 6px 10px;
   border: none;
@@ -403,58 +350,55 @@ tr:hover {
   font-weight: 500;
   transition: var(--transition);
 }
-
 .actions button:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
 .actions button:active {
   transform: translateY(1px);
 }
-
 .actions .edit {
   background: var(--accent);
   color: white;
 }
-
 .actions .delete {
   background: #ff3b30;
   color: white;
 }
-
 .actions .commit {
   background: #34c759;
   color: white;
 }
-
 .actions .uncommit {
   background: #ff9500;
   color: white;
 }
-
 .actions .adjust {
   background: #af52de;
   color: white;
 }
-
 .actions .export {
   background: #5ac8fa;
   color: white;
 }
-
 .actions .print {
   background: #30d158;
   color: white;
 }
-
+.actions .close-day {
+  background: #ff3b30;
+  color: white;
+}
+.actions .reopen-day {
+  background: #34c759;
+  color: white;
+}
 .add-form {
   margin-top: 20px;
   padding: 16px;
   background: rgba(0, 0, 0, 0.02);
   border-radius: var(--radius);
 }
-
 .add-form input, .add-form select, .add-form textarea {
   padding: 10px;
   margin: 6px 0;
@@ -464,13 +408,11 @@ tr:hover {
   font-size: 15px;
   transition: var(--transition);
 }
-
 .add-form input:focus, .add-form select:focus, .add-form textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
-
 .add-form button {
   margin-top: 10px;
   padding: 10px 16px;
@@ -482,16 +424,13 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .add-form button:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
 }
-
 .add-form button:active {
   transform: translateY(1px);
 }
-
 /* Dashboard Stats */
 .stats-grid {
   display: grid;
@@ -499,7 +438,6 @@ tr:hover {
   gap: 20px;
   margin-bottom: 30px;
 }
-
 .stat-card {
   background: var(--white);
   padding: 20px;
@@ -508,31 +446,26 @@ tr:hover {
   text-align: center;
   transition: var(--transition);
 }
-
 .stat-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
-
 .stat-card .icon {
   font-size: 32px;
   margin-bottom: 10px;
   color: var(--accent);
 }
-
 .stat-card .value {
   font-size: 32px;
   font-weight: 700;
   margin: 10px 0;
 }
-
 .stat-card .label {
   color: var(--muted);
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.01em;
 }
-
 /* Toast Notification */
 .toast {
   position: fixed;
@@ -549,24 +482,19 @@ tr:hover {
   transition: var(--transition);
   max-width: 300px;
 }
-
 .toast.show {
   opacity: 1;
   transform: translateY(0);
 }
-
 .toast.success {
   background: #34c759;
 }
-
 .toast.error {
   background: #ff3b30;
 }
-
 .toast.warning {
   background: #ff9500;
 }
-
 /* Modal */
 .modal {
   position: fixed;
@@ -583,12 +511,10 @@ tr:hover {
   visibility: hidden;
   transition: var(--transition);
 }
-
 .modal.show {
   opacity: 1;
   visibility: visible;
 }
-
 .modal-content {
   background: var(--white);
   padding: 30px;
@@ -599,23 +525,19 @@ tr:hover {
   transform: scale(0.9);
   transition: var(--transition);
 }
-
 .modal.show .modal-content {
   transform: scale(1);
 }
-
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-
 .modal-header h3 {
   margin: 0;
   font-weight: 600;
 }
-
 .modal-close {
   background: none;
   border: none;
@@ -624,21 +546,17 @@ tr:hover {
   color: var(--muted);
   transition: var(--transition);
 }
-
 .modal-close:hover {
   color: var(--text);
 }
-
 .modal-body {
   margin-bottom: 20px;
 }
-
 .modal-footer {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
 }
-
 .modal-footer button {
   padding: 10px 16px;
   border: none;
@@ -647,25 +565,20 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .modal-footer .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .modal-footer .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .modal-footer .btn-confirm {
   background: var(--accent);
   color: white;
 }
-
 .modal-footer .btn-confirm:hover {
   background: var(--accent-hover);
 }
-
 /* Pagination */
 .pagination {
   display: flex;
@@ -673,7 +586,6 @@ tr:hover {
   margin-top: 20px;
   gap: 5px;
 }
-
 .pagination button {
   padding: 8px 12px;
   border: 1px solid #d2d2d7;
@@ -682,22 +594,18 @@ tr:hover {
   cursor: pointer;
   transition: var(--transition);
 }
-
 .pagination button:hover {
   background: rgba(0, 113, 227, 0.1);
 }
-
 .pagination button.active {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
 }
-
 .pagination button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 /* Date Range Filter */
 .date-filter {
   display: flex;
@@ -705,13 +613,11 @@ tr:hover {
   margin-bottom: 15px;
   flex-wrap: wrap;
 }
-
 .date-filter input {
   padding: 8px;
   border: 1px solid #d2d2d7;
   border-radius: 6px;
 }
-
 .date-filter button {
   padding: 8px 16px;
   background: var(--accent);
@@ -721,11 +627,9 @@ tr:hover {
   cursor: pointer;
   transition: var(--transition);
 }
-
 .date-filter button:hover {
   background: var(--accent-hover);
 }
-
 /* Bulk Actions */
 .bulk-actions {
   margin-bottom: 15px;
@@ -733,7 +637,6 @@ tr:hover {
   gap: 10px;
   flex-wrap: wrap;
 }
-
 .bulk-actions button {
   padding: 8px 16px;
   border: none;
@@ -742,38 +645,31 @@ tr:hover {
   font-weight: 500;
   transition: var(--transition);
 }
-
 .bulk-actions .bulk-delete {
   background: #ff3b30;
   color: white;
 }
-
 .bulk-actions .bulk-delete:hover {
   background: #d70015;
 }
-
 /* Activity Log */
 .activity-log {
   max-height: 400px;
   overflow-y: auto;
 }
-
 .activity-item {
   padding: 10px;
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
 }
-
 .activity-item:last-child {
   border-bottom: none;
 }
-
 .activity-time {
   color: var(--muted);
   font-size: 14px;
 }
-
 /* Print Styles */
 @media print {
   body * {
@@ -795,7 +691,6 @@ tr:hover {
     display: none !important;
   }
 }
-
 /* Reports */
 .report-container {
   display: grid;
@@ -803,7 +698,6 @@ tr:hover {
   gap: 20px;
   margin-bottom: 30px;
 }
-
 .report-card {
   background: var(--white);
   padding: 20px;
@@ -811,48 +705,39 @@ tr:hover {
   box-shadow: var(--shadow);
   transition: var(--transition);
 }
-
 .report-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
-
 .report-card h3 {
   margin-top: 0;
   margin-bottom: 15px;
   color: var(--accent);
 }
-
 .report-card .value {
   font-size: 28px;
   font-weight: 700;
   margin: 10px 0;
 }
-
 .report-card .change {
   font-size: 14px;
   margin-top: 5px;
 }
-
 .report-card .positive {
   color: #34c759;
 }
-
 .report-card .negative {
   color: #ff3b30;
 }
-
 .chart-container {
   height: 300px;
   margin-top: 20px;
 }
-
 /* Charts */
 .chart {
   width: 100%;
   height: 100%;
 }
-
 /* Quick Actions */
 .quick-actions {
   display: flex;
@@ -860,7 +745,6 @@ tr:hover {
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
-
 .quick-actions button {
   padding: 12px 20px;
   background: var(--white);
@@ -873,17 +757,14 @@ tr:hover {
   align-items: center;
   gap: 8px;
 }
-
 .quick-actions button:hover {
   background: rgba(0, 113, 227, 0.1);
   border-color: var(--accent);
   color: var(--accent);
 }
-
 .quick-actions button i {
   font-size: 16px;
 }
-
 /* Status Badge */
 .status {
   display: inline-block;
@@ -892,88 +773,247 @@ tr:hover {
   font-size: 12px;
   font-weight: 500;
 }
-
 .status.draft {
   background: rgba(255, 149, 0, 0.1);
   color: #ff9500;
 }
-
 .status.committed {
   background: rgba(52, 199, 89, 0.1);
   color: #34c759;
 }
-
 .status.in-stock {
   background: rgba(52, 199, 89, 0.1);
   color: #34c759;
 }
-
 .status.low-stock {
   background: rgba(255, 149, 0, 0.1);
   color: #ff9500;
 }
-
 .status.out-of-stock {
   background: rgba(255, 59, 48, 0.1);
   color: #ff3b30;
 }
-
-/* Create Cashbill Form */
-.cashbill-form {
+.status.open {
+  background: rgba(0, 113, 227, 0.1);
+  color: var(--accent);
+}
+.status.closed {
+  background: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+}
+/* Daily Sales */
+.daily-sales-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.daily-summary-card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.daily-summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+.daily-summary-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--accent);
+  font-size: 18px;
+}
+.daily-summary-card .value {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.daily-summary-card .label {
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.bank-records {
+  margin-top: 20px;
+}
+.bank-records h3 {
+  margin-bottom: 15px;
+}
+.bank-record-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.bank-record-item:last-child {
+  border-bottom: none;
+}
+.bank-record-item .amount {
+  font-weight: 600;
+}
+.bank-record-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+.bank-record-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.bank-record-actions .add-bank {
+  background: var(--accent);
+  color: white;
+}
+.bank-record-actions .add-bank:hover {
+  background: var(--accent-hover);
+}
+.bank-record-actions .close-day {
+  background: #ff3b30;
+  color: white;
+}
+.bank-record-actions .close-day:hover {
+  background: #d70015;
+}
+.daily-sales-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.daily-sales-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.daily-sales-actions .btn-cancel {
+  background: #f5f5f7;
+  color: var(--text);
+}
+.daily-sales-actions .btn-cancel:hover {
+  background: #e8e8ed;
+}
+.daily-sales-actions .btn-save {
+  background: var(--accent);
+  color: white;
+}
+.daily-sales-actions .btn-save:hover {
+  background: var(--accent-hover);
+}
+.daily-sales-actions .btn-close {
+  background: #ff3b30;
+  color: white;
+}
+.daily-sales-actions .btn-close:hover {
+  background: #d70015;
+}
+/* Create Daily Sales Form */
+.daily-sales-form {
   display: grid;
   gap: 20px;
 }
-
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
-
 .form-section {
   margin-bottom: 20px;
 }
-
 .form-section h3 {
   margin-bottom: 15px;
   font-size: 18px;
   color: var(--accent);
 }
-
+.bank-entry {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.bank-entry input {
+  flex: 1;
+}
+.bank-entry button {
+  padding: 8px 12px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.bank-entry button:hover {
+  background: var(--accent-hover);
+}
+.cashbill-list {
+  margin-top: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.cashbill-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.cashbill-item:last-child {
+  border-bottom: none;
+}
+/* Create Cashbill Form */
+.cashbill-form {
+  display: grid;
+  gap: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.form-section {
+  margin-bottom: 20px;
+}
+.form-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: var(--accent);
+}
 .item-selection {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
-
 .item-selection select {
   flex: 1;
 }
-
 .item-selection input {
   width: 100px;
 }
-
 .selected-items {
   margin-top: 15px;
 }
-
 .selected-items table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .selected-items th, .selected-items td {
   padding: 8px 12px;
   border: 1px solid #eee;
   text-align: left;
 }
-
 .selected-items th {
   background: rgba(0, 0, 0, 0.02);
   font-weight: 600;
 }
-
 .total-section {
   display: flex;
   justify-content: flex-end;
@@ -982,14 +1022,12 @@ tr:hover {
   font-size: 18px;
   font-weight: 600;
 }
-
 .create-cashbill-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
-
 .create-cashbill-actions button {
   padding: 10px 20px;
   border: none;
@@ -998,43 +1036,35 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .create-cashbill-actions .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .create-cashbill-actions .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .create-cashbill-actions .btn-submit {
   background: var(--accent);
   color: white;
 }
-
 .create-cashbill-actions .btn-submit:hover {
   background: var(--accent-hover);
 }
-
 /* Create Logbook Form */
 .logbook-form {
   display: grid;
   gap: 20px;
 }
-
 .logbook-form textarea {
   min-height: 150px;
   resize: vertical;
 }
-
 .create-logbook-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
-
 .create-logbook-actions button {
   padding: 10px 20px;
   border: none;
@@ -1043,38 +1073,31 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .create-logbook-actions .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .create-logbook-actions .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .create-logbook-actions .btn-submit {
   background: var(--accent);
   color: white;
 }
-
 .create-logbook-actions .btn-submit:hover {
   background: var(--accent-hover);
 }
-
 /* Create Courier Form */
 .courier-form {
   display: grid;
   gap: 20px;
 }
-
 .create-courier-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
-
 .create-courier-actions button {
   padding: 10px 20px;
   border: none;
@@ -1083,38 +1106,31 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .create-courier-actions .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .create-courier-actions .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .create-courier-actions .btn-submit {
   background: var(--accent);
   color: white;
 }
-
 .create-courier-actions .btn-submit:hover {
   background: var(--accent-hover);
 }
-
 /* Create Inventory Form */
 .inventory-form {
   display: grid;
   gap: 20px;
 }
-
 .create-inventory-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
-
 .create-inventory-actions button {
   padding: 10px 20px;
   border: none;
@@ -1123,38 +1139,31 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .create-inventory-actions .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .create-inventory-actions .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .create-inventory-actions .btn-submit {
   background: var(--accent);
   color: white;
 }
-
 .create-inventory-actions .btn-submit:hover {
   background: var(--accent-hover);
 }
-
 /* Create User Form */
 .user-form {
   display: grid;
   gap: 20px;
 }
-
 .create-user-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
-
 .create-user-actions button {
   padding: 10px 20px;
   border: none;
@@ -1163,53 +1172,43 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .create-user-actions .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .create-user-actions .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .create-user-actions .btn-submit {
   background: var(--accent);
   color: white;
 }
-
 .create-user-actions .btn-submit:hover {
   background: var(--accent-hover);
 }
-
 /* Settings Form */
 .settings-form {
   display: grid;
   gap: 20px;
 }
-
 .setting-item {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .setting-item label {
   cursor: pointer;
 }
-
 .setting-item select {
   width: auto;
   padding: 6px 10px;
 }
-
 .settings-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 20px;
 }
-
 .settings-actions button {
   padding: 10px 20px;
   border: none;
@@ -1218,30 +1217,24 @@ tr:hover {
   font-weight: 600;
   transition: var(--transition);
 }
-
 .settings-actions .btn-cancel {
   background: #f5f5f7;
   color: var(--text);
 }
-
 .settings-actions .btn-cancel:hover {
   background: #e8e8ed;
 }
-
 .settings-actions .btn-save {
   background: var(--accent);
   color: white;
 }
-
 .settings-actions .btn-save:hover {
   background: var(--accent-hover);
 }
-
 .settings-actions .btn-danger {
   background: #ff3b30;
   color: white;
 }
-
 .settings-actions .btn-danger:hover {
   background: #d70015;
 }
@@ -1260,7 +1253,6 @@ tr:hover {
     <div class="error hidden" id="loginError"></div>
   </div>
 </div>
-
 <!-- App -->
 <div class="app" id="appScreen">
   <div class="topbar">
@@ -1282,6 +1274,12 @@ tr:hover {
       <div class="sidebar-category-title">SALES</div>
       <a href="#" onclick="showPage('dashboard')" class="nav-link">
         <i class="fas fa-chart-line"></i> Dashboard
+      </a>
+      <a href="#" onclick="showPage('createDailySales')" class="nav-link">
+        <i class="fas fa-calendar-day"></i> Daily Sales
+      </a>
+      <a href="#" onclick="showPage('dailySalesList')" class="nav-link">
+        <i class="fas fa-list-alt"></i> Daily Sales Records
       </a>
       <a href="#" onclick="showPage('createCashbill')" class="nav-link">
         <i class="fas fa-plus-circle"></i> Create Cashbill
@@ -1345,10 +1343,8 @@ tr:hover {
   
   <div class="main" id="mainContent"></div>
 </div>
-
 <!-- Toast Notification -->
 <div class="toast" id="toast"></div>
-
 <!-- Confirmation Modal -->
 <div class="modal" id="confirmModal">
   <div class="modal-content">
@@ -1365,7 +1361,6 @@ tr:hover {
     </div>
   </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // Initialize data from localStorage or use defaults
@@ -1384,12 +1379,11 @@ let settings = JSON.parse(localStorage.getItem('settings')) || {
   itemsPerPage: 10
 };
 let activityLog = JSON.parse(localStorage.getItem('activityLog')) || [];
-
+let dailySales = JSON.parse(localStorage.getItem('dailySales')) || [];
 // Pagination variables
 let currentPage = 1;
 let itemsPerPage = settings.itemsPerPage || 10;
 let currentPageType = '';
-
 // Check if user is already logged in
 if (currentUser) {
   document.getElementById("loginScreen").style.display = "none";
@@ -1408,7 +1402,6 @@ if (currentUser) {
   
   showPage("dashboard");
 }
-
 function initializeSampleData() {
   // Sample inventory
   inventory = [
@@ -1550,10 +1543,45 @@ function initializeSampleData() {
     }
   ];
   
+  // Sample daily sales
+  const today = new Date().toISOString().split('T')[0];
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  
+  dailySales = [
+    {
+      id: "DS001",
+      date: yesterday,
+      totalSales: 6230.00,
+      bankRecords: [
+        { amount: 5000.00, note: "Cash deposit" },
+        { amount: 1230.00, note: "Online transfer" }
+      ],
+      totalBankDeposits: 6230.00,
+      notes: "Regular day sales",
+      status: "Closed",
+      createdBy: "Admin",
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+      closedBy: "Admin",
+      closedAt: new Date(Date.now() - 43200000).toISOString()
+    },
+    {
+      id: "DS002",
+      date: today,
+      totalSales: 3400.00,
+      bankRecords: [
+        { amount: 2000.00, note: "Morning deposit" }
+      ],
+      totalBankDeposits: 2000.00,
+      notes: "Sales in progress",
+      status: "Open",
+      createdBy: "Demo",
+      createdAt: new Date().toISOString()
+    }
+  ];
+  
   // Save sample data
   saveData();
 }
-
 function login() {
   const id = document.getElementById("userId").value.trim();
   const pw = document.getElementById("password").value.trim();
@@ -1592,7 +1620,6 @@ function login() {
   showToast("Login successful!", "success");
   showPage("dashboard");
 }
-
 function logout() {
   if (currentUser) {
     logActivity(`User ${currentUser.name} logged out`);
@@ -1606,11 +1633,9 @@ function logout() {
   document.getElementById("password").value = "";
   showToast("You have been logged out", "success");
 }
-
 function toggleSidebar() {
   document.getElementById("sidebar").classList.toggle("open");
 }
-
 function showPage(page) {
   // Update active nav link
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -1639,6 +1664,10 @@ function showPage(page) {
     // Calculate monthly sales for chart
     const monthlySales = calculateMonthlySales();
     
+    // Check if today's daily sales record exists
+    const today = new Date().toISOString().split('T')[0];
+    const todayDailySales = dailySales.find(ds => ds.date === today);
+    
     html = `
       <div class="card">
         <h1>Dashboard</h1>
@@ -1665,7 +1694,45 @@ function showPage(page) {
           </div>
         </div>
         
+        ${!todayDailySales ? `
+        <div class="card">
+          <h2>Today's Daily Sales</h2>
+          <p>No daily sales record created for today.</p>
+          <button class="btn-submit" onclick="showPage('createDailySales')">Create Daily Sales Record</button>
+        </div>
+        ` : `
+        <div class="card">
+          <h2>Today's Daily Sales</h2>
+          <div class="daily-sales-summary">
+            <div class="daily-summary-card">
+              <h3>Total Sales</h3>
+              <div class="value">RM${todayDailySales.totalSales.toFixed(2)}</div>
+              <div class="label">From ${cashbills.filter(cb => cb.date === today && cb.status === "Committed").length} transactions</div>
+            </div>
+            <div class="daily-summary-card">
+              <h3>Bank Deposits</h3>
+              <div class="value">RM${todayDailySales.totalBankDeposits.toFixed(2)}</div>
+              <div class="label">${todayDailySales.bankRecords.length} records</div>
+            </div>
+            <div class="daily-summary-card">
+              <h3>Status</h3>
+              <div class="value">
+                <span class="status ${todayDailySales.status.toLowerCase()}">${todayDailySales.status}</span>
+              </div>
+              <div class="label">
+                ${todayDailySales.status === "Open" ? 
+                  `<button class="btn-submit" onclick="showPage('createDailySales')">Manage Record</button>` : 
+                  `<button class="btn-cancel" onclick="showPage('dailySalesList')">View Records</button>`}
+              </div>
+            </div>
+          </div>
+        </div>
+        `}
+        
         <div class="quick-actions">
+          <button onclick="showPage('createDailySales')">
+            <i class="fas fa-calendar-day"></i> Daily Sales
+          </button>
           <button onclick="showPage('createCashbill')">
             <i class="fas fa-plus"></i> New Cashbill
           </button>
@@ -1674,9 +1741,6 @@ function showPage(page) {
           </button>
           <button onclick="showPage('createLogbook')">
             <i class="fas fa-plus"></i> Log Entry
-          </button>
-          <button onclick="showPage('createCourier')">
-            <i class="fas fa-plus"></i> Courier Entry
           </button>
         </div>
         
@@ -1705,6 +1769,358 @@ function showPage(page) {
     setTimeout(() => {
       initializeSalesChart(monthlySales);
     }, 100);
+  }
+  
+  if (page === "createDailySales") {
+    const today = new Date().toISOString().split('T')[0];
+    const existingRecord = dailySales.find(ds => ds.date === today);
+    
+    if (existingRecord) {
+      // Edit existing record
+      const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
+      const totalSales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
+      
+      html = `
+        <div class="card">
+          <h1>Daily Sales - ${formatDate(today)}</h1>
+          <div class="daily-sales-form">
+            <div class="form-section">
+              <h3>Sales Summary</h3>
+              <div class="daily-sales-summary">
+                <div class="daily-summary-card">
+                  <h3>Total Sales</h3>
+                  <div class="value">RM${totalSales.toFixed(2)}</div>
+                  <div class="label">From ${todayCashbills.length} transactions</div>
+                </div>
+                <div class="daily-summary-card">
+                  <h3>Bank Deposits</h3>
+                  <div class="value">RM${existingRecord.totalBankDeposits.toFixed(2)}</div>
+                  <div class="label">${existingRecord.bankRecords.length} records</div>
+                </div>
+                <div class="daily-summary-card">
+                  <h3>Status</h3>
+                  <div class="value">
+                    <span class="status ${existingRecord.status.toLowerCase()}">${existingRecord.status}</span>
+                  </div>
+                  <div class="label">
+                    ${existingRecord.status === "Open" ? 
+                      `<button class="btn-close" onclick="closeDailySales('${existingRecord.id}')">Close Day</button>` : 
+                      (currentUser.role === "admin" ? 
+                        `<button class="reopen-day" onclick="reopenDailySales('${existingRecord.id}')">Reopen Day</button>` : 
+                        `<span>Closed - Contact admin to reopen</span>`)}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h3>Today's Cashbills</h3>
+              <div class="cashbill-list">
+                ${todayCashbills.length > 0 ? todayCashbills.map(cb => `
+                <div class="cashbill-item">
+                  <div>${cb.id} - ${cb.customerName}</div>
+                  <div>RM${(cb.totalAmount || 0).toFixed(2)}</div>
+                </div>
+                `).join("") : "<p>No committed cashbills for today</p>"}
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h3>Bank Records</h3>
+              <div class="bank-records">
+                ${existingRecord.bankRecords.map((record, index) => `
+                <div class="bank-record-item">
+                  <div>${record.note || "Bank deposit"}</div>
+                  <div class="amount">RM${record.amount.toFixed(2)}</div>
+                  ${existingRecord.status === "Open" ? `
+                  <button class="delete" onclick="removeBankRecord('${existingRecord.id}', ${index})" title="Remove">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  ` : ""}
+                </div>
+                `).join("")}
+              </div>
+              
+              ${existingRecord.status === "Open" ? `
+              <div class="bank-entry">
+                <input type="number" id="bankAmount" placeholder="Amount" step="0.01" min="0">
+                <input type="text" id="bankNote" placeholder="Note (optional)">
+                <button onclick="addBankRecord('${existingRecord.id}')"><i class="fas fa-plus"></i> Add</button>
+              </div>
+              ` : ""}
+            </div>
+            
+            <div class="form-section">
+              <h3>Notes</h3>
+              <textarea id="dailySalesNotes" placeholder="Additional notes..." ${existingRecord.status === "Closed" ? "disabled" : ""}>${existingRecord.notes || ""}</textarea>
+            </div>
+            
+            <div class="daily-sales-actions">
+              <button class="btn-cancel" onclick="showPage('dailySalesList')">Back to List</button>
+              ${existingRecord.status === "Open" ? `
+              <button class="btn-save" onclick="updateDailySales('${existingRecord.id}')">Save Changes</button>
+              ` : ""}
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      // Create new record
+      const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
+      const totalSales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
+      
+      html = `
+        <div class="card">
+          <h1>Create Daily Sales - ${formatDate(today)}</h1>
+          <div class="daily-sales-form">
+            <div class="form-section">
+              <h3>Sales Summary</h3>
+              <div class="daily-sales-summary">
+                <div class="daily-summary-card">
+                  <h3>Total Sales</h3>
+                  <div class="value">RM${totalSales.toFixed(2)}</div>
+                  <div class="label">From ${todayCashbills.length} transactions</div>
+                </div>
+                <div class="daily-summary-card">
+                  <h3>Bank Deposits</h3>
+                  <div class="value">RM0.00</div>
+                  <div class="label">0 records</div>
+                </div>
+                <div class="daily-summary-card">
+                  <h3>Status</h3>
+                  <div class="value">
+                    <span class="status open">Open</span>
+                  </div>
+                  <div class="label">Ready to record bank deposits</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h3>Today's Cashbills</h3>
+              <div class="cashbill-list">
+                ${todayCashbills.length > 0 ? todayCashbills.map(cb => `
+                <div class="cashbill-item">
+                  <div>${cb.id} - ${cb.customerName}</div>
+                  <div>RM${(cb.totalAmount || 0).toFixed(2)}</div>
+                </div>
+                `).join("") : "<p>No committed cashbills for today</p>"}
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h3>Bank Records</h3>
+              <div class="bank-records">
+                <p>No bank records added yet</p>
+              </div>
+              
+              <div class="bank-entry">
+                <input type="number" id="bankAmount" placeholder="Amount" step="0.01" min="0">
+                <input type="text" id="bankNote" placeholder="Note (optional)">
+                <button onclick="addBankRecordToNew()"><i class="fas fa-plus"></i> Add</button>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h3>Notes</h3>
+              <textarea id="dailySalesNotes" placeholder="Additional notes..."></textarea>
+            </div>
+            
+            <div class="daily-sales-actions">
+              <button class="btn-cancel" onclick="showPage('dashboard')">Cancel</button>
+              <button class="btn-save" onclick="createDailySales()">Save Daily Sales</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
+  
+  if (page === "dailySalesList") {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedDailySales = dailySales.slice(startIndex, endIndex);
+    
+    html = `
+      <div class="card">
+        <div class="card-header">
+          <h1>Daily Sales Records</h1>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="dailySalesSearch" placeholder="Search records..." onkeyup="filterDailySales()">
+          </div>
+        </div>
+        
+        <div class="date-filter">
+          <input type="date" id="dsStartDate" placeholder="Start Date">
+          <input type="date" id="dsEndDate" placeholder="End Date">
+          <button onclick="filterDailySalesByDate()">Filter</button>
+          <button onclick="clearDateFilter('dailySales')">Clear</button>
+        </div>
+        
+        <div class="bulk-actions">
+          <button class="export" onclick="exportDailySales()">
+            <i class="fas fa-download"></i> Export CSV
+          </button>
+          <button class="print" onclick="printDailySales()">
+            <i class="fas fa-print"></i> Print
+          </button>
+        </div>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Total Sales</th>
+              <th>Bank Deposits</th>
+              <th>Difference</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="dailySalesTableBody">
+            ${paginatedDailySales.map((ds, i) => {
+              const actualIndex = startIndex + i;
+              const difference = ds.totalSales - ds.totalBankDeposits;
+              return `
+              <tr>
+                <td>${ds.id}</td>
+                <td>${formatDate(ds.date)}</td>
+                <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
+                <td>RM${(ds.totalBankDeposits || 0).toFixed(2)}</td>
+                <td style="color: ${difference === 0 ? 'inherit' : difference > 0 ? '#ff3b30' : '#34c759'}">
+                  RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}
+                </td>
+                <td><span class="status ${ds.status.toLowerCase()}">${ds.status}</span></td>
+                <td class="actions">
+                  <button class="edit" onclick="viewDailySales('${ds.id}')" title="View"><i class="fas fa-eye"></i></button>
+                  ${ds.status === "Open" ? `
+                  <button class="edit" onclick="showPage('createDailySales')" title="Edit"><i class="fas fa-edit"></i></button>
+                  <button class="close-day" onclick="closeDailySales('${ds.id}')" title="Close Day"><i class="fas fa-lock"></i></button>
+                  ` : ""}
+                  ${currentUser.role === "admin" && ds.status === "Closed" ? `
+                  <button class="reopen-day" onclick="reopenDailySales('${ds.id}')" title="Reopen Day"><i class="fas fa-unlock"></i></button>
+                  ` : ""}
+                </td>
+              </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+        
+        ${renderPagination(dailySales.length, 'dailySales')}
+      </div>
+    `;
+  }
+  
+  if (page === "viewDailySales") {
+    const dailySalesId = new URLSearchParams(window.location.search).get('id');
+    const dailySale = dailySales.find(ds => ds.id === dailySalesId);
+    
+    if (dailySale) {
+      const todayCashbills = cashbills.filter(cb => cb.date === dailySale.date && cb.status === "Committed");
+      const difference = dailySale.totalSales - dailySale.totalBankDeposits;
+      
+      html = `
+        <div class="card">
+          <div class="card-header">
+            <h1>Daily Sales Details - ${formatDate(dailySale.date)}</h1>
+            <button class="btn-cancel" onclick="showPage('dailySalesList')">Back to List</button>
+          </div>
+          
+          <div class="daily-sales-summary">
+            <div class="daily-summary-card">
+              <h3>Total Sales</h3>
+              <div class="value">RM${(dailySale.totalSales || 0).toFixed(2)}</div>
+              <div class="label">From ${todayCashbills.length} transactions</div>
+            </div>
+            <div class="daily-summary-card">
+              <h3>Bank Deposits</h3>
+              <div class="value">RM${(dailySale.totalBankDeposits || 0).toFixed(2)}</div>
+              <div class="label">${dailySale.bankRecords.length} records</div>
+            </div>
+            <div class="daily-summary-card">
+              <h3>Difference</h3>
+              <div class="value" style="color: ${difference === 0 ? 'inherit' : difference > 0 ? '#ff3b30' : '#34c759'}">
+                RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}
+              </div>
+              <div class="label">
+                <span class="status ${dailySale.status.toLowerCase()}">${dailySale.status}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <h3>Cashbills</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${todayCashbills.map(cb => `
+                <tr>
+                  <td>${cb.id}</td>
+                  <td>${cb.customerName}</td>
+                  <td>RM${(cb.totalAmount || 0).toFixed(2)}</td>
+                </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="form-section">
+            <h3>Bank Records</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Amount</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${dailySale.bankRecords.map(record => `
+                <tr>
+                  <td>RM${(record.amount || 0).toFixed(2)}</td>
+                  <td>${record.note || "-"}</td>
+                </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+          
+          ${dailySale.notes ? `
+          <div class="form-section">
+            <h3>Notes</h3>
+            <p>${dailySale.notes}</p>
+          </div>
+          ` : ""}
+          
+          <div class="daily-sales-actions">
+            <button class="btn-cancel" onclick="showPage('dailySalesList')">Back to List</button>
+            ${dailySale.status === "Open" ? `
+            <button class="btn-save" onclick="showPage('createDailySales')">Edit Record</button>
+            <button class="btn-close" onclick="closeDailySales('${dailySale.id}')">Close Day</button>
+            ` : ""}
+            ${currentUser.role === "admin" && dailySale.status === "Closed" ? `
+            <button class="reopen-day" onclick="reopenDailySales('${dailySale.id}')">Reopen Day</button>
+            ` : ""}
+          </div>
+        </div>
+      `;
+    } else {
+      html = `
+        <div class="card">
+          <h1>Daily Sales Record Not Found</h1>
+          <p>The requested daily sales record could not be found.</p>
+          <button class="btn-submit" onclick="showPage('dailySalesList')">Back to List</button>
+        </div>
+      `;
+    }
   }
   
   if (page === "createCashbill") {
@@ -2538,7 +2954,6 @@ function showPage(page) {
   
   document.getElementById("mainContent").innerHTML = html;
 }
-
 // Initialize cashbill form
 function initializeCashbillForm() {
   const itemSelect = document.getElementById('itemSelect');
@@ -2554,10 +2969,8 @@ function initializeCashbillForm() {
     });
   }
 }
-
 // Add item to cashbill
 let selectedItems = [];
-
 function addItemToCashbill() {
   const itemSelect = document.getElementById('itemSelect');
   const itemQuantity = document.getElementById('itemQuantity');
@@ -2593,7 +3006,6 @@ function addItemToCashbill() {
   itemSelect.value = "";
   itemQuantity.value = 1;
 }
-
 // Update selected items table
 function updateSelectedItemsTable() {
   const tableBody = document.getElementById('selectedItemsTable');
@@ -2621,13 +3033,11 @@ function updateSelectedItemsTable() {
   // Update total
   document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
 }
-
 // Remove item from cashbill
 function removeItemFromCashbill(index) {
   selectedItems.splice(index, 1);
   updateSelectedItemsTable();
 }
-
 // Save cashbill
 function saveCashbill() {
   const customerName = document.getElementById('customerName').value.trim();
@@ -2665,7 +3075,6 @@ function saveCashbill() {
   showToast("Cashbill saved successfully", "success");
   showPage('cashbills');
 }
-
 // Save inventory item
 function saveInventoryItem() {
   const itemName = document.getElementById('itemName').value.trim();
@@ -2697,7 +3106,6 @@ function saveInventoryItem() {
   showToast("Item added successfully", "success");
   showPage('inventory');
 }
-
 // Edit inventory item
 function editInventory(index) {
   const item = inventory[index];
@@ -2712,7 +3120,6 @@ function editInventory(index) {
     showPage('inventory');
   }
 }
-
 // Save logbook entry
 function saveLogbookEntry() {
   const logbookDate = document.getElementById('logbookDate').value;
@@ -2737,7 +3144,6 @@ function saveLogbookEntry() {
   showToast("Log entry saved successfully", "success");
   showPage('logbook');
 }
-
 // Save courier entry
 function saveCourierEntry() {
   const trackingNumber = document.getElementById('trackingNumber').value.trim();
@@ -2764,7 +3170,6 @@ function saveCourierEntry() {
   showToast("Courier entry saved successfully", "success");
   showPage('courier');
 }
-
 // Save user
 function saveUser() {
   const userId = document.getElementById('userId').value.trim();
@@ -2796,7 +3201,6 @@ function saveUser() {
   showToast("User added successfully", "success");
   showPage('users');
 }
-
 // Save settings
 function saveSettings() {
   const darkMode = document.getElementById('darkMode').checked;
@@ -2813,7 +3217,6 @@ function saveSettings() {
   saveData();
   showToast("Settings saved successfully", "success");
 }
-
 // Update setting
 function updateSetting(setting) {
   if (setting === 'darkMode') {
@@ -2832,7 +3235,6 @@ function updateSetting(setting) {
   
   showToast("Setting updated", "success");
 }
-
 // View cashbill details
 function viewCashbill(index) {
   const cashbill = cashbills[index];
@@ -2840,7 +3242,6 @@ function viewCashbill(index) {
   window.history.pushState({}, '', url);
   showPage('viewCashbill');
 }
-
 // Commit cashbill
 function commitCashbill(index) {
   cashbills[index].status = "Committed";
@@ -2853,7 +3254,6 @@ function commitCashbill(index) {
   showToast("Cashbill committed successfully", "success");
   showPage('cashbills');
 }
-
 // Uncommit cashbill (admin only)
 function uncommitCashbill(index) {
   if (currentUser.role !== "admin") {
@@ -2871,7 +3271,213 @@ function uncommitCashbill(index) {
   showToast("Cashbill uncommitted successfully", "warning");
   showPage('cashbills');
 }
-
+// Daily Sales Functions
+function createDailySales() {
+  const today = new Date().toISOString().split('T')[0];
+  const todayCashbills = cashbills.filter(cb => cb.date === today && cb.status === "Committed");
+  const totalSales = todayCashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
+  const notes = document.getElementById('dailySalesNotes').value.trim();
+  
+  // Check if record already exists
+  if (dailySales.find(ds => ds.date === today)) {
+    showToast("Daily sales record for today already exists", "error");
+    return;
+  }
+  
+  const newDailySales = {
+    id: 'DS' + Date.now(),
+    date: today,
+    totalSales: totalSales,
+    bankRecords: [],
+    totalBankDeposits: 0,
+    notes: notes,
+    status: "Open",
+    createdBy: currentUser.name,
+    createdAt: new Date().toISOString()
+  };
+  
+  dailySales.push(newDailySales);
+  saveData();
+  logActivity(`Created daily sales record for ${today}`);
+  
+  showToast("Daily sales record created successfully", "success");
+  showPage('createDailySales');
+}
+function updateDailySales(id) {
+  const record = dailySales.find(ds => ds.id === id);
+  if (!record) return;
+  
+  const notes = document.getElementById('dailySalesNotes').value.trim();
+  
+  record.notes = notes;
+  saveData();
+  logActivity(`Updated daily sales record for ${record.date}`);
+  
+  showToast("Daily sales record updated successfully", "success");
+  showPage('createDailySales');
+}
+function closeDailySales(id) {
+  const record = dailySales.find(ds => ds.id === id);
+  if (!record) return;
+  
+  // Check if there's a difference between sales and bank deposits
+  const difference = record.totalSales - record.totalBankDeposits;
+  if (difference !== 0) {
+    showToast(`Cannot close day: There is a difference of RM${Math.abs(difference).toFixed(2)} between sales and bank deposits`, "error");
+    return;
+  }
+  
+  record.status = "Closed";
+  record.closedBy = currentUser.name;
+  record.closedAt = new Date().toISOString();
+  
+  saveData();
+  logActivity(`Closed daily sales record for ${record.date}`);
+  
+  showToast("Daily sales record closed successfully", "success");
+  showPage('createDailySales');
+}
+function reopenDailySales(id) {
+  if (currentUser.role !== "admin") {
+    showToast("Only admin can reopen daily sales records", "error");
+    return;
+  }
+  
+  const record = dailySales.find(ds => ds.id === id);
+  if (!record) return;
+  
+  record.status = "Open";
+  delete record.closedBy;
+  delete record.closedAt;
+  
+  saveData();
+  logActivity(`Reopened daily sales record for ${record.date}`);
+  
+  showToast("Daily sales record reopened successfully", "warning");
+  showPage('createDailySales');
+}
+function addBankRecordToNew() {
+  const amount = parseFloat(document.getElementById('bankAmount').value) || 0;
+  const note = document.getElementById('bankNote').value.trim();
+  
+  if (amount <= 0) {
+    showToast("Please enter a valid amount", "error");
+    return;
+  }
+  
+  // Add to temporary bank records array
+  if (!window.tempBankRecords) {
+    window.tempBankRecords = [];
+  }
+  
+  window.tempBankRecords.push({
+    amount: amount,
+    note: note
+  });
+  
+  // Update display
+  updateBankRecordsDisplay();
+  
+  // Reset form
+  document.getElementById('bankAmount').value = "";
+  document.getElementById('bankNote').value = "";
+  
+  showToast("Bank record added", "success");
+}
+function addBankRecord(id) {
+  const amount = parseFloat(document.getElementById('bankAmount').value) || 0;
+  const note = document.getElementById('bankNote').value.trim();
+  
+  if (amount <= 0) {
+    showToast("Please enter a valid amount", "error");
+    return;
+  }
+  
+  const record = dailySales.find(ds => ds.id === id);
+  if (!record) return;
+  
+  record.bankRecords.push({
+    amount: amount,
+    note: note
+  });
+  
+  // Update total bank deposits
+  record.totalBankDeposits = record.bankRecords.reduce((sum, br) => sum + br.amount, 0);
+  
+  saveData();
+  logActivity(`Added bank record of RM${amount.toFixed(2)} to daily sales for ${record.date}`);
+  
+  // Refresh the page
+  showPage('createDailySales');
+  
+  showToast("Bank record added", "success");
+}
+function removeBankRecord(id, index) {
+  const record = dailySales.find(ds => ds.id === id);
+  if (!record) return;
+  
+  const removedAmount = record.bankRecords[index].amount;
+  record.bankRecords.splice(index, 1);
+  
+  // Update total bank deposits
+  record.totalBankDeposits = record.bankRecords.reduce((sum, br) => sum + br.amount, 0);
+  
+  saveData();
+  logActivity(`Removed bank record of RM${removedAmount.toFixed(2)} from daily sales for ${record.date}`);
+  
+  // Refresh the page
+  showPage('createDailySales');
+  
+  showToast("Bank record removed", "success");
+}
+function updateBankRecordsDisplay() {
+  if (!window.tempBankRecords) return;
+  
+  const bankRecordsContainer = document.querySelector('.bank-records');
+  if (!bankRecordsContainer) return;
+  
+  let html = '';
+  let total = 0;
+  
+  window.tempBankRecords.forEach((record, index) => {
+    total += record.amount;
+    html += `
+    <div class="bank-record-item">
+      <div>${record.note || "Bank deposit"}</div>
+      <div class="amount">RM${record.amount.toFixed(2)}</div>
+      <button class="delete" onclick="removeTempBankRecord(${index})" title="Remove">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+    `;
+  });
+  
+  bankRecordsContainer.innerHTML = html || '<p>No bank records added yet</p>';
+  
+  // Update total in the summary card
+  const totalBankElement = document.querySelector('.daily-summary-card:nth-child(2) .value');
+  if (totalBankElement) {
+    totalBankElement.textContent = `RM${total.toFixed(2)}`;
+  }
+  
+  // Update record count
+  const countElement = document.querySelector('.daily-summary-card:nth-child(2) .label');
+  if (countElement) {
+    countElement.textContent = `${window.tempBankRecords.length} records`;
+  }
+}
+function removeTempBankRecord(index) {
+  if (!window.tempBankRecords) return;
+  
+  window.tempBankRecords.splice(index, 1);
+  updateBankRecordsDisplay();
+  showToast("Bank record removed", "success");
+}
+function viewDailySales(id) {
+  const url = `?id=${id}`;
+  window.history.pushState({}, '', url);
+  showPage('viewDailySales');
+}
 // Delete functions
 function confirmDeleteCashbill(index) {
   showConfirmModal(
@@ -2880,7 +3486,6 @@ function confirmDeleteCashbill(index) {
     () => deleteCashbill(index)
   );
 }
-
 function deleteCashbill(index) {
   const cashbill = cashbills[index];
   cashbills.splice(index, 1);
@@ -2889,7 +3494,6 @@ function deleteCashbill(index) {
   showToast("Cashbill deleted", "success");
   showPage("cashbills");
 }
-
 function confirmDeleteInventory(index) {
   showConfirmModal(
     "Delete Inventory Item",
@@ -2897,7 +3501,6 @@ function confirmDeleteInventory(index) {
     () => deleteInventory(index)
   );
 }
-
 function deleteInventory(index) {
   const item = inventory[index];
   inventory.splice(index, 1);
@@ -2906,7 +3509,6 @@ function deleteInventory(index) {
   showToast("Item deleted", "success");
   showPage("inventory");
 }
-
 function confirmDeleteLog(index) {
   showConfirmModal(
     "Delete Log Entry",
@@ -2914,7 +3516,6 @@ function confirmDeleteLog(index) {
     () => deleteLog(index)
   );
 }
-
 function deleteLog(index) {
   const entry = logbook[index];
   logbook.splice(index, 1);
@@ -2923,7 +3524,6 @@ function deleteLog(index) {
   showToast("Log entry deleted", "success");
   showPage("logbook");
 }
-
 function confirmDeleteCourier(index) {
   showConfirmModal(
     "Delete Courier Entry",
@@ -2931,7 +3531,6 @@ function confirmDeleteCourier(index) {
     () => deleteCourier(index)
   );
 }
-
 function deleteCourier(index) {
   const entry = courier[index];
   courier.splice(index, 1);
@@ -2940,7 +3539,6 @@ function deleteCourier(index) {
   showToast("Courier entry deleted", "success");
   showPage("courier");
 }
-
 function confirmDeleteUser(index) {
   showConfirmModal(
     "Delete User",
@@ -2948,7 +3546,6 @@ function confirmDeleteUser(index) {
     () => deleteUser(index)
   );
 }
-
 function deleteUser(index) {
   const user = users[index];
   users.splice(index, 1);
@@ -2957,7 +3554,6 @@ function deleteUser(index) {
   showToast("User deleted", "success");
   showPage("users");
 }
-
 // Filter functions
 function filterCashbills() {
   const searchTerm = document.getElementById("cbSearch").value.toLowerCase();
@@ -2968,7 +3564,6 @@ function filterCashbills() {
     row.style.display = customer.includes(searchTerm) ? "" : "none";
   });
 }
-
 function filterCashbillsByDate() {
   const startDate = document.getElementById("cbStartDate").value;
   const endDate = document.getElementById("cbEndDate").value;
@@ -3009,7 +3604,6 @@ function filterCashbillsByDate() {
   
   showToast(`Found ${filteredCashbills.length} cashbills in the selected date range`, "success");
 }
-
 function filterInventory() {
   const searchTerm = document.getElementById("invSearch").value.toLowerCase();
   const rows = document.querySelectorAll("#inventoryTableBody tr");
@@ -3019,7 +3613,6 @@ function filterInventory() {
     row.style.display = name.includes(searchTerm) ? "" : "none";
   });
 }
-
 function filterLogbook() {
   const searchTerm = document.getElementById("logSearch").value.toLowerCase();
   const rows = document.querySelectorAll("#logbookTableBody tr");
@@ -3029,7 +3622,6 @@ function filterLogbook() {
     row.style.display = entry.includes(searchTerm) ? "" : "none";
   });
 }
-
 function filterLogbookByDate() {
   const startDate = document.getElementById("logStartDate").value;
   const endDate = document.getElementById("logEndDate").value;
@@ -3058,7 +3650,6 @@ function filterLogbookByDate() {
   
   showToast(`Found ${filteredLogbook.length} log entries in the selected date range`, "success");
 }
-
 function filterCourier() {
   const searchTerm = document.getElementById("courierSearch").value.toLowerCase();
   const rows = document.querySelectorAll("#courierTableBody tr");
@@ -3069,7 +3660,6 @@ function filterCourier() {
     row.style.display = tracking.includes(searchTerm) || entry.includes(searchTerm) ? "" : "none";
   });
 }
-
 function filterCourierByDate() {
   const startDate = document.getElementById("courierStartDate").value;
   const endDate = document.getElementById("courierEndDate").value;
@@ -3099,7 +3689,6 @@ function filterCourierByDate() {
   
   showToast(`Found ${filteredCourier.length} courier entries in the selected date range`, "success");
 }
-
 function filterUsers() {
   const searchTerm = document.getElementById("userSearch").value.toLowerCase();
   const rows = document.querySelectorAll("#usersTableBody tr");
@@ -3109,7 +3698,6 @@ function filterUsers() {
     row.style.display = name.includes(searchTerm) ? "" : "none";
   });
 }
-
 function filterActivity() {
   const searchTerm = document.getElementById("activitySearch").value.toLowerCase();
   const items = document.querySelectorAll(".activity-item");
@@ -3119,7 +3707,6 @@ function filterActivity() {
     item.style.display = text.includes(searchTerm) ? "" : "none";
   });
 }
-
 function filterActivityByDate() {
   const startDate = document.getElementById("activityStartDate").value;
   const endDate = document.getElementById("activityEndDate").value;
@@ -3147,7 +3734,59 @@ function filterActivityByDate() {
   
   showToast(`Found ${filteredActivity.length} activities in the selected date range`, "success");
 }
-
+function filterDailySales() {
+  const searchTerm = document.getElementById("dailySalesSearch").value.toLowerCase();
+  const rows = document.querySelectorAll("#dailySalesTableBody tr");
+  
+  rows.forEach(row => {
+    const id = row.cells[0].textContent.toLowerCase();
+    row.style.display = id.includes(searchTerm) ? "" : "none";
+  });
+}
+function filterDailySalesByDate() {
+  const startDate = document.getElementById("dsStartDate").value;
+  const endDate = document.getElementById("dsEndDate").value;
+  
+  if (!startDate || !endDate) {
+    showToast("Please select both start and end dates", "error");
+    return;
+  }
+  
+  const filteredDailySales = dailySales.filter(ds => {
+    const dsDate = new Date(ds.date).toISOString().split('T')[0];
+    return dsDate >= startDate && dsDate <= endDate;
+  });
+  
+  // Update the table with filtered results
+  const tbody = document.getElementById("dailySalesTableBody");
+  tbody.innerHTML = filteredDailySales.map(ds => {
+    const difference = ds.totalSales - ds.totalBankDeposits;
+    return `
+    <tr>
+      <td>${ds.id}</td>
+      <td>${formatDate(ds.date)}</td>
+      <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
+      <td>RM${(ds.totalBankDeposits || 0).toFixed(2)}</td>
+      <td style="color: ${difference === 0 ? 'inherit' : difference > 0 ? '#ff3b30' : '#34c759'}">
+        RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}
+      </td>
+      <td><span class="status ${ds.status.toLowerCase()}">${ds.status}</span></td>
+      <td class="actions">
+        <button class="edit" onclick="viewDailySales('${ds.id}')" title="View"><i class="fas fa-eye"></i></button>
+        ${ds.status === "Open" ? `
+        <button class="edit" onclick="showPage('createDailySales')" title="Edit"><i class="fas fa-edit"></i></button>
+        <button class="close-day" onclick="closeDailySales('${ds.id}')" title="Close Day"><i class="fas fa-lock"></i></button>
+        ` : ""}
+        ${currentUser.role === "admin" && ds.status === "Closed" ? `
+        <button class="reopen-day" onclick="reopenDailySales('${ds.id}')" title="Reopen Day"><i class="fas fa-unlock"></i></button>
+        ` : ""}
+      </td>
+    </tr>
+    `;
+  }).join("");
+  
+  showToast(`Found ${filteredDailySales.length} daily sales records in the selected date range`, "success");
+}
 // Export functions
 function exportCashbills() {
   let csv = 'ID,Customer,Date,Total,Status\n';
@@ -3159,7 +3798,6 @@ function exportCashbills() {
   downloadCSV(csv, 'cashbills.csv');
   showToast("Cashbills exported successfully", "success");
 }
-
 function exportInventory() {
   let csv = 'ID,Name,Category,Quantity,Price\n';
   
@@ -3170,7 +3808,29 @@ function exportInventory() {
   downloadCSV(csv, 'inventory.csv');
   showToast("Inventory exported successfully", "success");
 }
-
+function exportDailySales() {
+  let csv = 'ID,Date,Total Sales,Bank Deposits,Difference,Status,Created By,Created At';
+  
+  if (currentUser.role === "admin") {
+    csv += ',Closed By,Closed At';
+  }
+  
+  csv += '\n';
+  
+  dailySales.forEach(ds => {
+    const difference = ds.totalSales - ds.totalBankDeposits;
+    csv += `"${ds.id}","${formatDate(ds.date)}",${ds.totalSales || 0},${ds.totalBankDeposits || 0},${difference.toFixed(2)},"${ds.status}","${ds.createdBy}","${formatDate(ds.createdAt)}"`;
+    
+    if (currentUser.role === "admin") {
+      csv += `,"${ds.closedBy || ''}","${ds.closedAt ? formatDate(ds.closedAt) : ''}"`;
+    }
+    
+    csv += '\n';
+  });
+  
+  downloadCSV(csv, 'daily_sales.csv');
+  showToast("Daily sales exported successfully", "success");
+}
 // Print functions
 function printCashbills() {
   const printContent = `
@@ -3222,7 +3882,6 @@ function printCashbills() {
   
   showToast("Print dialog opened", "success");
 }
-
 function printInventory() {
   const printContent = `
     <div class="print-area">
@@ -3273,7 +3932,61 @@ function printInventory() {
   
   showToast("Print dialog opened", "success");
 }
-
+function printDailySales() {
+  const printContent = `
+    <div class="print-area">
+      <h1>Daily Sales Report</h1>
+      <p>Generated on: ${new Date().toLocaleString()}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Total Sales</th>
+            <th>Bank Deposits</th>
+            <th>Difference</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${dailySales.map(ds => {
+            const difference = ds.totalSales - ds.totalBankDeposits;
+            return `
+            <tr>
+              <td>${ds.id}</td>
+              <td>${formatDate(ds.date)}</td>
+              <td>RM${(ds.totalSales || 0).toFixed(2)}</td>
+              <td>RM${(ds.totalBankDeposits || 0).toFixed(2)}</td>
+              <td>RM${Math.abs(difference).toFixed(2)} ${difference !== 0 ? (difference > 0 ? '(short)' : '(excess)') : ''}</td>
+              <td>${ds.status}</td>
+            </tr>
+            `;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+  
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Daily Sales Report</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          th { background-color: #f2f2f2; }
+        </style>
+      </head>
+      <body>${printContent}</body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+  
+  showToast("Print dialog opened", "success");
+}
 // Report generation
 function generateSalesReport() {
   const startDate = document.getElementById("salesStartDate").value;
@@ -3297,7 +4010,6 @@ function generateSalesReport() {
   
   showToast(`Report generated: ${totalTransactions} transactions, RM${totalSales.toFixed(2)} total sales`, "success");
 }
-
 // Utility functions
 function saveData() {
   localStorage.setItem('cashbills', JSON.stringify(cashbills));
@@ -3307,8 +4019,8 @@ function saveData() {
   localStorage.setItem('users', JSON.stringify(users));
   localStorage.setItem('activityLog', JSON.stringify(activityLog));
   localStorage.setItem('settings', JSON.stringify(settings));
+  localStorage.setItem('dailySales', JSON.stringify(dailySales));
 }
-
 function showToast(message, type = "success") {
   const toast = document.getElementById("toast");
   toast.textContent = message;
@@ -3318,7 +4030,6 @@ function showToast(message, type = "success") {
     toast.className = "toast";
   }, 3000);
 }
-
 function showConfirmModal(title, message, onConfirm) {
   document.getElementById("modalTitle").textContent = title;
   document.getElementById("modalMessage").textContent = message;
@@ -3328,18 +4039,15 @@ function showConfirmModal(title, message, onConfirm) {
   };
   document.getElementById("confirmModal").classList.add("show");
 }
-
 function closeModal() {
   document.getElementById("confirmModal").classList.remove("show");
 }
-
 function formatDate(dateString) {
   if (!dateString) return "N/A";
   
   const date = new Date(dateString);
-  return date.toLocaleString();
+  return date.toLocaleDateString();
 }
-
 function downloadCSV(csv, filename) {
   const blob = new Blob([csv], { type: 'text/csv' });
   const url = window.URL.createObjectURL(blob);
@@ -3351,7 +4059,6 @@ function downloadCSV(csv, filename) {
   a.click();
   document.body.removeChild(a);
 }
-
 function logActivity(action) {
   if (!currentUser) return;
   
@@ -3368,7 +4075,6 @@ function logActivity(action) {
   
   localStorage.setItem('activityLog', JSON.stringify(activityLog));
 }
-
 function renderPagination(totalItems, type) {
   if (totalItems <= itemsPerPage) return "";
   
@@ -3394,12 +4100,10 @@ function renderPagination(totalItems, type) {
   
   return pagination;
 }
-
 function changePage(page, type) {
   currentPage = page;
   showPage(type);
 }
-
 function clearDateFilter(type) {
   if (type === 'cashbills') {
     document.getElementById('cbStartDate').value = '';
@@ -3417,11 +4121,14 @@ function clearDateFilter(type) {
     document.getElementById('activityStartDate').value = '';
     document.getElementById('activityEndDate').value = '';
     showPage('activity');
+  } else if (type === 'dailySales') {
+    document.getElementById('dsStartDate').value = '';
+    document.getElementById('dsEndDate').value = '';
+    showPage('dailySalesList');
   }
   
   showToast("Date filter cleared", "success");
 }
-
 function resetData() {
   showConfirmModal(
     "Reset All Data",
@@ -3432,7 +4139,6 @@ function resetData() {
     }
   );
 }
-
 // Chart initialization functions
 function initializeSalesChart(monthlySales) {
   const ctx = document.getElementById('salesChart');
@@ -3473,7 +4179,6 @@ function initializeSalesChart(monthlySales) {
     }
   });
 }
-
 function initializeMonthlySalesChart(monthlySales) {
   const ctx = document.getElementById('monthlySalesChart');
   if (!ctx) return;
@@ -3511,7 +4216,6 @@ function initializeMonthlySalesChart(monthlySales) {
     }
   });
 }
-
 function initializeSalesStatusChart() {
   const ctx = document.getElementById('salesStatusChart');
   if (!ctx) return;
@@ -3540,7 +4244,6 @@ function initializeSalesStatusChart() {
     }
   });
 }
-
 function initializeInventoryDistributionChart() {
   const ctx = document.getElementById('inventoryDistributionChart');
   if (!ctx) return;
@@ -3576,7 +4279,6 @@ function initializeInventoryDistributionChart() {
     }
   });
 }
-
 function initializeStockStatusChart() {
   const ctx = document.getElementById('stockStatusChart');
   if (!ctx) return;
@@ -3615,7 +4317,6 @@ function initializeStockStatusChart() {
     }
   });
 }
-
 // Data calculation functions
 function calculateMonthlySales() {
   const monthlyData = {};
@@ -3649,7 +4350,6 @@ function calculateMonthlySales() {
   
   return { labels, data };
 }
-
 function calculateSalesData() {
   const totalSales = cashbills.reduce((sum, cb) => sum + (cb.totalAmount || 0), 0);
   const totalTransactions = cashbills.length;
@@ -3674,7 +4374,6 @@ function calculateSalesData() {
     conversionChange
   };
 }
-
 function calculateInventoryData() {
   const totalItems = inventory.length;
   const totalValue = inventory.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
@@ -3694,7 +4393,6 @@ function calculateInventoryData() {
     valueChange
   };
 }
-
 function getInventoryStatus(quantity) {
   const qty = quantity || 0;
   
@@ -3706,7 +4404,6 @@ function getInventoryStatus(quantity) {
     return { text: 'In Stock', class: 'in-stock' };
   }
 }
-
 // Auto logout after 30 minutes of inactivity
 let inactivityTimer;
 function resetInactivityTimer() {
@@ -3718,16 +4415,13 @@ function resetInactivityTimer() {
     }
   }, 30 * 60 * 1000); // 30 minutes
 }
-
 // Reset timer on user activity
 document.addEventListener("mousemove", resetInactivityTimer);
 document.addEventListener("keypress", resetInactivityTimer);
 document.addEventListener("click", resetInactivityTimer);
 document.addEventListener("scroll", resetInactivityTimer);
-
 // Initialize inactivity timer
 resetInactivityTimer();
-
 // Load items per page from localStorage if available
 if (settings.itemsPerPage) {
   itemsPerPage = settings.itemsPerPage;
